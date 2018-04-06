@@ -39,7 +39,7 @@
                                 <state key="normal" title="Join Session"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cD7-bw-MtX">
-                                <rect key="frame" x="58" y="321" width="259" height="58"/>
+                                <rect key="frame" x="57" y="337" width="259" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <state key="normal" title="Host Session"/>

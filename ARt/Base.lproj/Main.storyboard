@@ -37,6 +37,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="Join Session"/>
+                                <connections>
+                                    <segue destination="aeu-cc-YRN" kind="show" id="WiS-s1-QDY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cD7-bw-MtX">
                                 <rect key="frame" x="57" y="337" width="259" height="58"/>
@@ -70,7 +73,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="334" y="42"/>
+            <point key="canvasLocation" x="-346" y="-249"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="U0k-K5-QoP">
+            <objects>
+                <viewController id="aeu-cc-YRN" customClass="ViewController" customModule="ARt" customModuleProvider="target" sceneMemberID="viewController">
+                    <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="rgY-q4-PMK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </arscnView>
+                    <connections>
+                        <outlet property="sceneView" destination="rgY-q4-PMK" id="pVV-cb-D7m"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SJy-Hn-DF5" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-346" y="423"/>
         </scene>
     </scenes>
 </document>

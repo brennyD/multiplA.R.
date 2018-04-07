@@ -44,7 +44,7 @@ class ClientView: UIViewController{
     override func viewDidAppear(_ animated: Bool) {
         let nameInput = UIAlertController(title: "Input username", message: nil, preferredStyle: .alert)
         
-        nameInput.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        nameInput.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in self.performSegue(withIdentifier: "unwindToMenu", sender: self) }))
         nameInput.addTextField(configurationHandler: {textField in textField.placeholder = "" })
         nameInput.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in
             if nameInput.textFields?.first?.text != "" {

@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import MultipeerConnectivity
 
 class HostView: UIViewController{
     
@@ -16,7 +16,7 @@ class HostView: UIViewController{
     @IBOutlet weak var ClientTable: UITableView!
 
     var sessionName: String!
-    
+    var hostSession: SessionManager!
     
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: "unwindToMenu", sender: self)
@@ -32,6 +32,7 @@ class HostView: UIViewController{
             
             if sessionInput.textFields?.first?.text != "" {
                 self.sessionName = sessionInput.textFields?.first?.text
+                self.hostSession = SessionManager(sessionTitle: self.sessionName)
             } else {
                 self.present(sessionInput, animated: true)
             }

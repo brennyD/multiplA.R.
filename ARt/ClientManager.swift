@@ -41,12 +41,13 @@ class ClientManager : NSObject {
         self.serviceBrowser.stopBrowsingForPeers()
     }
     
-    func send(colorName : String) {
-        NSLog("%@", "sendColor: \(colorName) to \(session.connectedPeers.count) peers")
+    
+    func send(message : String) {
+        NSLog("%@", "sendColor: \(message) to \(session.connectedPeers.count) peers")
         
         if session.connectedPeers.count > 0 {
             do {
-                try self.session.send(colorName.data(using: .utf8)!, toPeers: session.connectedPeers, with: .reliable)
+                try self.session.send(message.data(using: .utf8)!, toPeers: session.connectedPeers, with: .reliable)
             }
             catch let error {
                 NSLog("%@", "Error for sending: \(error)")

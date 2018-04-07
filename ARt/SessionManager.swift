@@ -17,6 +17,10 @@ protocol SessionViewDelegate {
     func connectedDevicesChanged(manager : SessionManager, connectedDevices: [String])
    // func colorChanged(manager : SessionManager, colorString: String)
     
+    
+    func labelUpdated(manager: SessionManager, messageString: String)
+    
+    
 }
 
 
@@ -92,6 +96,11 @@ extension SessionManager : MCSessionDelegate {
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         NSLog("%@", "didReceiveData: \(data)")
+        
+        let rMessage = String(data: data, encoding: .utf8)
+        
+        self.delegate?.labelUpdated(manager: self, messageString: rMessage!)
+        
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {

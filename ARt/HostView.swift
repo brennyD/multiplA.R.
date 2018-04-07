@@ -16,8 +16,9 @@ import MultipeerConnectivity
 class HostView: UIViewController{
     
     
-    @IBOutlet weak var ClientTable: UITableView!
-
+  
+    @IBOutlet var label: UILabel!
+    
     
     var sessionName: String!
     var hostSession: SessionManager!
@@ -89,9 +90,18 @@ class HostView: UIViewController{
 }
 
 extension HostView: SessionViewDelegate{
+    func labelUpdated(manager: SessionManager, messageString: String) {
+        label.text = messageString
+    }
+    
     func connectedDevicesChanged(manager: SessionManager, connectedDevices: [String]) {
         print("Connection: \(connectedDevices)")
     }
+    
+    
+    
+    
+    
     
     
 }

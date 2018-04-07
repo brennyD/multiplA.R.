@@ -17,6 +17,7 @@
 		258030C920782E1900637637 /* ARtUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258030C820782E1900637637 /* ARtUITests.swift */; };
 		258030D72078432700637637 /* ClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258030D62078432700637637 /* ClientView.swift */; };
 		258030DB20784AED00637637 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258030DA20784AED00637637 /* MainScreenView.swift */; };
+		258030E320784F3200637637 /* HostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258030E220784F3100637637 /* HostView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		258030CA20782E1900637637 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		258030D62078432700637637 /* ClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientView.swift; sourceTree = "<group>"; };
 		258030DA20784AED00637637 /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
+		258030E220784F3100637637 /* HostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		258030A520782E1700637637 /* ARt */ = {
 			isa = PBXGroup;
 			children = (
+				258030E220784F3100637637 /* HostView.swift */,
 				258030A620782E1700637637 /* AppDelegate.swift */,
 				258030A820782E1700637637 /* art.scnassets */,
 				258030AA20782E1700637637 /* ViewController.swift */,
@@ -267,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				258030AB20782E1700637637 /* ViewController.swift in Sources */,
+				258030E320784F3200637637 /* HostView.swift in Sources */,
 				258030D72078432700637637 /* ClientView.swift in Sources */,
 				258030A720782E1700637637 /* AppDelegate.swift in Sources */,
 				258030DB20784AED00637637 /* MainScreenView.swift in Sources */,

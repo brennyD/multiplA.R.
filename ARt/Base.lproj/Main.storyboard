@@ -62,7 +62,7 @@
         <!--HostView-->
         <scene sceneID="6b6-NE-TkD">
             <objects>
-                <viewController title="HostView" id="HLh-iu-aOX" sceneMemberID="viewController">
+                <viewController title="HostView" id="HLh-iu-aOX" customClass="HostView" customModule="ARt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Fa-Pp-tRh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -105,6 +105,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Emg-uw-VrZ"/>
                     </view>
+                    <connections>
+                        <outlet property="ClientTable" destination="96g-MK-tU8" id="sxP-Kd-sug"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ndb-wI-bMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

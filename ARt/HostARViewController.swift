@@ -9,14 +9,25 @@
 import UIKit
 import SceneKit
 import ARKit
+import MultipeerConnectivity
+
 
 class HostARViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
     
+    var hostSession: SessionManager!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("DATA TRANSFERRED! \(hostSession.showPeers())")
+        
+        
         
         // Set the view's delegate
         sceneView.delegate = self

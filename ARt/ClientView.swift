@@ -70,7 +70,19 @@ class ClientView: UIViewController{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        
+        if segue.destination is ClientARViewController{
+            let cSession = segue.destination as? ClientARViewController
+            cSession?.clientSession = self.clientSession
+        }
+        
+    }
+
 }
+
 
 extension ClientView : ClientManagerDelegate {
     func transitionToSession(manager: ClientManager) {

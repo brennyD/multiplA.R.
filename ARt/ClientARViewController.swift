@@ -9,14 +9,20 @@
 import UIKit
 import SceneKit
 import ARKit
+import MultipeerConnectivity
 
 class ClientARViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet var sceneView: ARSCNView!
     
+    var clientSession: ClientManager!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("DATA RECEIVED \(clientSession.showPeers())")
+        
         
         // Set the view's delegate
         sceneView.delegate = self

@@ -59,6 +59,13 @@ class ClientManager : NSObject {
         
     }
 
+    
+    func showPeers() -> [MCPeerID] {
+        return self.session.connectedPeers
+    }
+    
+    
+    
 }
 
 extension ClientManager : MCNearbyServiceBrowserDelegate {

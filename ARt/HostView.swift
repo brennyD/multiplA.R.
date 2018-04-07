@@ -24,8 +24,6 @@ class HostView: UIViewController{
     var hostSession: SessionManager!
     
     @IBAction func sessionStart(_ sender: UIButton) {
-        
-        
         self.hostSession.sendStateChange()
         self.performSegue(withIdentifier: "hostMoveToAR", sender: self)
         
@@ -77,6 +75,19 @@ class HostView: UIViewController{
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        
+        if segue.destination is HostARViewController {
+            let hs = segue.destination as? HostARViewController
+            hs?.hostSession = self.hostSession
+        }
+    }
+    
+    
+    
+    
     
     // MARK: - ARSCNViewDelegate
     

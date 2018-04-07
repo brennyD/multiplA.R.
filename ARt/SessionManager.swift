@@ -71,6 +71,11 @@ class SessionManager: NSObject{
     
     
     
+    func showPeers() -> [MCPeerID] {
+        return self.session.connectedPeers
+    }
+    
+    
     
     
 

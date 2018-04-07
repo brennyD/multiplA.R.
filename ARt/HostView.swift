@@ -108,7 +108,7 @@ extension HostView: SessionViewDelegate{
     func connectedDevicesChanged(manager: SessionManager, connectedDevices: [String]) {
         print("Connection: \(connectedDevices)")
         OperationQueue.main.addOperation {
-            self.label.text = "Connected"
+            self.label.text = "Connected to \(connectedDevices.first ?? "user...")"
         }
         
     }

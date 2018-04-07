@@ -12,7 +12,7 @@ import ARKit
 import MultipeerConnectivity
 
 
-class HostARViewController: UIViewController, ARSCNViewDelegate {
+class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserver {
 
     @IBOutlet var sceneView: ARSCNView!
     
@@ -23,7 +23,7 @@ class HostARViewController: UIViewController, ARSCNViewDelegate {
     
     var hostSession: SessionManager!
     
-    
+    var didInit: Bool!
     
     
     override func viewDidLoad() {
@@ -48,6 +48,7 @@ class HostARViewController: UIViewController, ARSCNViewDelegate {
         initLabel.center = CGPoint(x: sceneView.frame.midX, y: (sceneView.frame.midY)+250)
         initLabel.textAlignment = .center
         
+        didInit = false
         
         // Set the scene to the view
         sceneView.scene = scene
@@ -88,6 +89,25 @@ class HostARViewController: UIViewController, ARSCNViewDelegate {
         return node
     }
 */
+    
+    
+    
+    //update EACH frame
+    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+        
+        
+        
+    }
+    
+    
+    func session(_ session: ARSession,cameraDidChangeTrackingState camera: ARCamera){
+        
+        if didInit == false {
+            didInit = true
+        }
+        
+    }
+    
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user

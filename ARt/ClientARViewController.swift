@@ -12,7 +12,7 @@ import SpriteKit
 import ARKit
 import MultipeerConnectivity
 
-class ClientARViewController: UIViewController, ARSCNViewDelegate {
+class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserver {
     
     @IBOutlet var sceneView: ARSCNView!
     @IBAction func didPinch(_ sender: UIPinchGestureRecognizer) {
@@ -21,6 +21,8 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet var initLabel: UILabel!
     var clientSession: ClientManager!
+    
+    var didInit: Bool!
     
     
     override func viewDidLoad() {
@@ -34,8 +36,7 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate {
         
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = false
-        
-        
+
         sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin]
         
         
@@ -50,6 +51,8 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate {
         initLabel.textAlignment = .center
         
         
+        didInit = false
+        
         // Set the scene to the view
         sceneView.scene = scene
         sceneView.addSubview(initLabel)
@@ -57,16 +60,19 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
         
+        guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "ARResources", bundle: nil) else {
+            fatalError("Missing expected asset catalog resources.")
+        }
         
-        
-        
+        configuration.detectionImages = referenceImages
         // Run the view's session
         sceneView.session.run(configuration)
     }
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -90,6 +96,40 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate {
      return node
      }
      */
+    
+    
+    
+    //update EACH frame
+    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+        
+        
+        
+    }
+    
+    
+    //Anchor of any kind is added
+    func renderer(_ renderer: SCNSceneRenderer,didAdd node: SCNNode, for anchor: ARAnchor){
+        
+        guard let image = anchor as? ARImageAnchor else {return}
+        
+
+        
+        
+        
+        
+    }
+    
+    
+    func session(_ session: ARSession,cameraDidChangeTrackingState camera: ARCamera){
+        
+        if didInit == false {
+            didInit = true
+            initLabel.text = "Point to the image!"
+        }
+        
+    }
+    
+    
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user

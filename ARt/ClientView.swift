@@ -33,6 +33,7 @@ class ClientView: UIViewController{
             if nameInput.textFields?.first?.text != "" {
                 self.username = nameInput.textFields?.first?.text
                 self.clientSession = ClientManager(username: self.username)
+                self.clientSession.delegate = self
             } else {
                 self.present(nameInput, animated: true)
             }
@@ -52,5 +53,29 @@ class ClientView: UIViewController{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+}
+
+extension ClientView : ClientManagerDelegate {
+    
+    func connectedDevicesChanged(manager: ClientManager, connectedDevices: [String]) {
+        OperationQueue.main.addOperation {
+            //self.connectionsLabel.text = "Connections: \(connectedDevices)"
+            print("Connections: \(connectedDevices)")
+        }
+    }
+    
+    //        func colorChanged(manager: ColorServiceManager, colorString: String) {
+    //            OperationQueue.main.addOperation {
+    //                switch colorString {
+    //                case "red":
+    //                    self.change(color: .red)
+    //                case "yellow":
+    //                    self.change(color: .yellow)
+    //                default:
+    //                    NSLog("%@", "Unknown color value received: \(colorString)")
+    //                }
+    //            }
+    //        }
+    
 }
 

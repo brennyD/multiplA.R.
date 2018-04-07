@@ -74,7 +74,11 @@ class ClientView: UIViewController{
 
 extension ClientView : ClientManagerDelegate {
     func transitionToSession(manager: ClientManager) {
-        self.performSegue(withIdentifier: "clientMoveToAR", sender: self)
+        
+        OperationQueue.main.addOperation {
+            self.performSegue(withIdentifier: "clientMoveToAR", sender: self)
+        }
+        
     }
     
     

@@ -10,7 +10,6 @@
 		258030A720782E1700637637 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258030A620782E1700637637 /* AppDelegate.swift */; };
 		258030A920782E1700637637 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 258030A820782E1700637637 /* art.scnassets */; };
 		258030AB20782E1700637637 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258030AA20782E1700637637 /* ViewController.swift */; };
-		258030AE20782E1700637637 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 258030AC20782E1700637637 /* Main.storyboard */; };
 		258030B020782E1900637637 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 258030AF20782E1900637637 /* Assets.xcassets */; };
 		258030B320782E1900637637 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 258030B120782E1900637637 /* LaunchScreen.storyboard */; };
 		258030BE20782E1900637637 /* ARtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258030BD20782E1900637637 /* ARtTests.swift */; };
@@ -18,6 +17,8 @@
 		258030D72078432700637637 /* ClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258030D62078432700637637 /* ClientView.swift */; };
 		258030DB20784AED00637637 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258030DA20784AED00637637 /* MainScreenView.swift */; };
 		258030E320784F3200637637 /* HostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258030E220784F3100637637 /* HostView.swift */; };
+		25B88DE720786B9B004BE38B /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B88DE620786B9B004BE38B /* SessionManager.swift */; };
+		25CD66D720791E0400ACB213 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25CD66D620791E0400ACB213 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +43,6 @@
 		258030A620782E1700637637 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		258030A820782E1700637637 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		258030AA20782E1700637637 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		258030AD20782E1700637637 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		258030AF20782E1900637637 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		258030B220782E1900637637 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		258030B420782E1900637637 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,6 +55,8 @@
 		258030D62078432700637637 /* ClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientView.swift; sourceTree = "<group>"; };
 		258030DA20784AED00637637 /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 		258030E220784F3100637637 /* HostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostView.swift; sourceTree = "<group>"; };
+		25B88DE620786B9B004BE38B /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		25CD66D620791E0400ACB213 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,14 +108,15 @@
 			isa = PBXGroup;
 			children = (
 				258030E220784F3100637637 /* HostView.swift */,
+				25B88DE620786B9B004BE38B /* SessionManager.swift */,
 				258030A620782E1700637637 /* AppDelegate.swift */,
 				258030A820782E1700637637 /* art.scnassets */,
 				258030AA20782E1700637637 /* ViewController.swift */,
-				258030AC20782E1700637637 /* Main.storyboard */,
 				258030DA20784AED00637637 /* MainScreenView.swift */,
 				258030D62078432700637637 /* ClientView.swift */,
 				258030AF20782E1900637637 /* Assets.xcassets */,
 				258030B120782E1900637637 /* LaunchScreen.storyboard */,
+				25CD66D620791E0400ACB213 /* Main.storyboard */,
 				258030B420782E1900637637 /* Info.plist */,
 			);
 			path = ARt;
@@ -242,9 +245,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				258030A920782E1700637637 /* art.scnassets in Resources */,
+				25CD66D720791E0400ACB213 /* Main.storyboard in Resources */,
 				258030B320782E1900637637 /* LaunchScreen.storyboard in Resources */,
 				258030B020782E1900637637 /* Assets.xcassets in Resources */,
-				258030AE20782E1700637637 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +274,7 @@
 			files = (
 				258030AB20782E1700637637 /* ViewController.swift in Sources */,
 				258030E320784F3200637637 /* HostView.swift in Sources */,
+				25B88DE720786B9B004BE38B /* SessionManager.swift in Sources */,
 				258030D72078432700637637 /* ClientView.swift in Sources */,
 				258030A720782E1700637637 /* AppDelegate.swift in Sources */,
 				258030DB20784AED00637637 /* MainScreenView.swift in Sources */,
@@ -309,14 +313,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		258030AC20782E1700637637 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				258030AD20782E1700637637 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		258030B120782E1900637637 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -15,15 +15,41 @@ class HostView: UIViewController{
     
     @IBOutlet weak var ClientTable: UITableView!
 
+    var sessionName: String!
+    
+    
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: "unwindToMenu", sender: self)
     }
     
+    
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let nameInput = UIAlertController(title: "Input session name", message: nil, preferredStyle: .alert)
+        
+        nameInput.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        nameInput.addTextField(configurationHandler: {textField in textField.placeholder = ""})
+        nameInput.addAction(UIAlertAction(title: "Enter", style: .default, handler: {action in
+            
+            if nameInput.textFields?.first?.text != "" {
+                self.sessionName = nameInput.textFields?.first?.text
+            } else {
+                self.present(nameInput, animated: true)
+            }
+        } ))
+        
+        
+        self.present(nameInput, animated: true)
+      
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         
-      
-      
         
     }
     

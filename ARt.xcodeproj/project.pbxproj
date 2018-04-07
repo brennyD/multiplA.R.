@@ -17,9 +17,9 @@
 		258030D72078432700637637 /* ClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258030D62078432700637637 /* ClientView.swift */; };
 		258030DB20784AED00637637 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258030DA20784AED00637637 /* MainScreenView.swift */; };
 		258030E320784F3200637637 /* HostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258030E220784F3100637637 /* HostView.swift */; };
-		BF58A3E120786E5B001EE370 /* ClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF58A3E020786E5B001EE370 /* ClientManager.swift */; };
 		25B88DE720786B9B004BE38B /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B88DE620786B9B004BE38B /* SessionManager.swift */; };
-
+		BF58A3E120786E5B001EE370 /* ClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF58A3E020786E5B001EE370 /* ClientManager.swift */; };
+		BF58A3E4207922CD001EE370 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF58A3E2207922CD001EE370 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,10 +56,9 @@
 		258030D62078432700637637 /* ClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientView.swift; sourceTree = "<group>"; };
 		258030DA20784AED00637637 /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 		258030E220784F3100637637 /* HostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostView.swift; sourceTree = "<group>"; };
-		BF58A3E020786E5B001EE370 /* ClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientManager.swift; sourceTree = "<group>"; };
 		25B88DE620786B9B004BE38B /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
-		25CD66D920791F4900ACB213 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main.storyboard; path = "/Users/bdemilt/Documents/IOS workspace/ARt/ARt/Main.storyboard"; sourceTree = "<absolute>"; };
-
+		BF58A3E020786E5B001EE370 /* ClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientManager.swift; sourceTree = "<group>"; };
+		BF58A3E3207922CD001EE370 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,16 +109,13 @@
 		258030A520782E1700637637 /* ARt */ = {
 			isa = PBXGroup;
 			children = (
-				25CD66D920791F4900ACB213 /* Main.storyboard */,
+				BF58A3E2207922CD001EE370 /* Main.storyboard */,
 				258030E220784F3100637637 /* HostView.swift */,
 				25B88DE620786B9B004BE38B /* SessionManager.swift */,
 				258030A620782E1700637637 /* AppDelegate.swift */,
 				258030A820782E1700637637 /* art.scnassets */,
 				258030AA20782E1700637637 /* ViewController.swift */,
-
-				258030AC20782E1700637637 /* Main.storyboard */,
 				BF58A3E020786E5B001EE370 /* ClientManager.swift */,
-
 				258030DA20784AED00637637 /* MainScreenView.swift */,
 				258030D62078432700637637 /* ClientView.swift */,
 				258030AF20782E1900637637 /* Assets.xcassets */,
@@ -254,6 +250,7 @@
 				258030A920782E1700637637 /* art.scnassets in Resources */,
 				258030B320782E1900637637 /* LaunchScreen.storyboard in Resources */,
 				258030B020782E1900637637 /* Assets.xcassets in Resources */,
+				BF58A3E4207922CD001EE370 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,11 +277,8 @@
 			files = (
 				258030AB20782E1700637637 /* ViewController.swift in Sources */,
 				258030E320784F3200637637 /* HostView.swift in Sources */,
-
 				BF58A3E120786E5B001EE370 /* ClientManager.swift in Sources */,
-
 				25B88DE720786B9B004BE38B /* SessionManager.swift in Sources */,
-
 				258030D72078432700637637 /* ClientView.swift in Sources */,
 				258030A720782E1700637637 /* AppDelegate.swift in Sources */,
 				258030DB20784AED00637637 /* MainScreenView.swift in Sources */,
@@ -329,6 +323,14 @@
 				258030B220782E1900637637 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		BF58A3E2207922CD001EE370 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF58A3E3207922CD001EE370 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

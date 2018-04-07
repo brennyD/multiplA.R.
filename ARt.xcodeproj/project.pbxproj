@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		258030A720782E1700637637 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258030A620782E1700637637 /* AppDelegate.swift */; };
 		258030A920782E1700637637 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 258030A820782E1700637637 /* art.scnassets */; };
-		258030AB20782E1700637637 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258030AA20782E1700637637 /* ViewController.swift */; };
+		258030AB20782E1700637637 /* HostARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258030AA20782E1700637637 /* HostARViewController.swift */; };
 		258030B020782E1900637637 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 258030AF20782E1900637637 /* Assets.xcassets */; };
 		258030B320782E1900637637 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 258030B120782E1900637637 /* LaunchScreen.storyboard */; };
 		258030BE20782E1900637637 /* ARtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258030BD20782E1900637637 /* ARtTests.swift */; };
@@ -20,6 +20,7 @@
 		25B88DE720786B9B004BE38B /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B88DE620786B9B004BE38B /* SessionManager.swift */; };
 		BF58A3E120786E5B001EE370 /* ClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF58A3E020786E5B001EE370 /* ClientManager.swift */; };
 		BF58A3E4207922CD001EE370 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF58A3E2207922CD001EE370 /* Main.storyboard */; };
+		BFC91DE62079405C00FA320A /* ClientARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC91DE52079405C00FA320A /* ClientARViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +44,7 @@
 		258030A320782E1700637637 /* ARt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		258030A620782E1700637637 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		258030A820782E1700637637 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		258030AA20782E1700637637 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		258030AA20782E1700637637 /* HostARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostARViewController.swift; sourceTree = "<group>"; };
 		258030AF20782E1900637637 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		258030B220782E1900637637 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		258030B420782E1900637637 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,6 +60,7 @@
 		25B88DE620786B9B004BE38B /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		BF58A3E020786E5B001EE370 /* ClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientManager.swift; sourceTree = "<group>"; };
 		BF58A3E3207922CD001EE370 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BFC91DE52079405C00FA320A /* ClientARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientARViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,8 +118,9 @@
 				258030D62078432700637637 /* ClientView.swift */,
 				258030E220784F3100637637 /* HostView.swift */,
 				25B88DE620786B9B004BE38B /* SessionManager.swift */,
-				258030AA20782E1700637637 /* ViewController.swift */,
 				258030DA20784AED00637637 /* MainScreenView.swift */,
+				BFC91DE52079405C00FA320A /* ClientARViewController.swift */,
+				258030AA20782E1700637637 /* HostARViewController.swift */,
 				258030A820782E1700637637 /* art.scnassets */,
 				258030AF20782E1900637637 /* Assets.xcassets */,
 				258030B420782E1900637637 /* Info.plist */,
@@ -275,7 +278,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				258030AB20782E1700637637 /* ViewController.swift in Sources */,
+				BFC91DE62079405C00FA320A /* ClientARViewController.swift in Sources */,
+				258030AB20782E1700637637 /* HostARViewController.swift in Sources */,
 				258030E320784F3200637637 /* HostView.swift in Sources */,
 				BF58A3E120786E5B001EE370 /* ClientManager.swift in Sources */,
 				25B88DE720786B9B004BE38B /* SessionManager.swift in Sources */,

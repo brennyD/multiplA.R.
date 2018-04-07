@@ -145,9 +145,6 @@
                                 <rect key="frame" x="164" y="299" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="sendButton:" destination="8PY-oQ-4jp" eventType="touchUpInside" id="l1H-IZ-tQg"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -165,7 +162,7 @@
         <!--ARScene-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController title="ARScene" id="BV1-FR-VrT" customClass="ViewController" customModule="ARt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="ARScene" id="BV1-FR-VrT" customClass="HostARViewController" customModule="ARt" customModuleProvider="target" sceneMemberID="viewController">
                     <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="BrB-h1-WRS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -177,6 +174,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="458" y="-272"/>
+        </scene>
+        <!--ARScene-->
+        <scene sceneID="0lF-4U-xib">
+            <objects>
+                <viewController title="ARScene" id="pI4-lL-zrn" customClass="ViewController" customModule="ARt" customModuleProvider="target" sceneMemberID="viewController">
+                    <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="kZi-NL-SWN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </arscnView>
+                    <connections>
+                        <outlet property="sceneView" destination="kZi-NL-SWN" id="kt7-1j-vLw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i8l-bs-ogY" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="457" y="404"/>
         </scene>
     </scenes>
 </document>

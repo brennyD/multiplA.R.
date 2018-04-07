@@ -23,24 +23,22 @@ class HostView: UIViewController{
     }
     
     
-    
-    
     override func viewDidAppear(_ animated: Bool) {
-        let nameInput = UIAlertController(title: "Input session name", message: nil, preferredStyle: .alert)
+        let sessionInput = UIAlertController(title: "Input session name", message: nil, preferredStyle: .alert)
         
-        nameInput.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        nameInput.addTextField(configurationHandler: {textField in textField.placeholder = ""})
-        nameInput.addAction(UIAlertAction(title: "Enter", style: .default, handler: {action in
+        sessionInput.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        sessionInput.addTextField(configurationHandler: {textField in textField.placeholder = ""})
+        sessionInput.addAction(UIAlertAction(title: "Enter", style: .default, handler: {action in
             
-            if nameInput.textFields?.first?.text != "" {
-                self.sessionName = nameInput.textFields?.first?.text
+            if sessionInput.textFields?.first?.text != "" {
+                self.sessionName = sessionInput.textFields?.first?.text
             } else {
-                self.present(nameInput, animated: true)
+                self.present(sessionInput, animated: true)
             }
-        } ))
+        }))
         
         
-        self.present(nameInput, animated: true)
+        self.present(sessionInput, animated: true)
       
     }
     

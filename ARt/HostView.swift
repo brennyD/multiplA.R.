@@ -13,9 +13,6 @@ import MultipeerConnectivity
 
 
 
-
-
-
 class HostView: UIViewController{
     
     

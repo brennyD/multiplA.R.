@@ -8,6 +8,12 @@
 
 import Foundation
 import UIKit
+import MultipeerConnectivity
+
+
+
+
+
 
 
 class HostView: UIViewController{
@@ -15,13 +21,44 @@ class HostView: UIViewController{
     
     @IBOutlet weak var ClientTable: UITableView!
 
+    
+    var sessionName: String!
+    var hostSession: SessionManager!
+    
+
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: "unwindToMenu", sender: self)
     }
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let sessionInput = UIAlertController(title: "Input session name", message: nil, preferredStyle: .alert)
+        
+        sessionInput.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        sessionInput.addTextField(configurationHandler: {textField in textField.placeholder = ""})
+        sessionInput.addAction(UIAlertAction(title: "Enter", style: .default, handler: {action in
+            
+            if sessionInput.textFields?.first?.text != "" {
+                self.sessionName = sessionInput.textFields?.first?.text
+                self.hostSession = SessionManager(sessionTitle: self.sessionName)
+                self.hostSession.delegate = self
+            }
+    
+        }))
+        
+        
+        self.present(sessionInput, animated: true)
+        
+    }
+    
+    
+    func updateTable() -> Void {
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         
     }
     
@@ -50,9 +87,19 @@ class HostView: UIViewController{
      return node
      }
      */
- 
+
     
-    
+}
+
+extension HostView: SessionViewDelegate{
+    func connectedDevicesChanged(manager: SessionManager, connectedDevices: [String]) {
+        print("Connection: \(connectedDevices)")
+    }
     
     
 }
+
+
+
+
+

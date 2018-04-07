@@ -30,15 +30,17 @@ class SessionManager: NSObject{
     private let sessionID = "art-session"
     private let hostID: MCPeerID
     private let advertiser: MCNearbyServiceAdvertiser
-    var session : MCSession
+    lazy var session : MCSession = {
+        let session = MCSession(peer: self.hostID, securityIdentity: nil, encryptionPreference: .optional)
+        session.delegate = self
+        return session
+    }()
     var delegate: SessionViewDelegate?
     
     
      init(sessionTitle: String){
         self.hostID = MCPeerID(displayName: sessionTitle)
-       // self.session = MCSession(peer: self.hostID, securityIdentity: nil, encryptionPreference: MCEncryptionPreference.optional)
         self.advertiser = MCNearbyServiceAdvertiser(peer: self.hostID, discoveryInfo: nil, serviceType: sessionID)
-        self.session = MCSession(peer: self.hostID, securityIdentity: nil, encryptionPreference: .none)
         super.init()
 
         self.advertiser.delegate = self
@@ -86,7 +88,7 @@ extension SessionManager : MCSessionDelegate {
         
         self.delegate?.connectedDevicesChanged(manager: self, connectedDevices:
         session.connectedPeers.map{$0.displayName})
-        
+        print(session.connectedPeers)
         
     }
     
@@ -98,7 +100,7 @@ extension SessionManager : MCSessionDelegate {
         NSLog("%@", "didReceiveData: \(data)")
         
         let rMessage = String(data: data, encoding: .utf8)
-        
+        print("data received")
         self.delegate?.labelUpdated(manager: self, messageString: rMessage!)
         
     }

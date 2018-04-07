@@ -92,6 +92,10 @@ class HostView: UIViewController{
 extension HostView: SessionViewDelegate{
     func labelUpdated(manager: SessionManager, messageString: String) {
         label.text = messageString
+        
+         NSLog("%@", "Data received: \(messageString)")
+        
+        
     }
     
     func connectedDevicesChanged(manager: SessionManager, connectedDevices: [String]) {

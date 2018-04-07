@@ -95,8 +95,6 @@ extension SessionManager : MCNearbyServiceAdvertiserDelegate {
         invitationHandler(true, self.session)
         self.advertiser.stopAdvertisingPeer()
 
-        
-        
     }
 
     

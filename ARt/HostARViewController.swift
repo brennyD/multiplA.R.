@@ -25,8 +25,6 @@ class HostARViewController: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("DATA TRANSFERRED! \(hostSession.showPeers())")
-        
         
         
         // Set the view's delegate
@@ -35,8 +33,13 @@ class HostARViewController: UIViewController, ARSCNViewDelegate {
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = false
         
+        sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin]
+        
+        
+        
+        
         // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        let scene = SCNScene()
         
         // Set the scene to the view
         sceneView.scene = scene
@@ -47,7 +50,6 @@ class HostARViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
-
         
         
         

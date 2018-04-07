@@ -30,6 +30,12 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate {
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = false
         
+        
+        sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin]
+        
+
+        
+        
         // Create a new scene
         let scene = SCNScene(named: "art.scnassets/ship.scn")!
         

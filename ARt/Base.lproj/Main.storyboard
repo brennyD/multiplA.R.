@@ -81,7 +81,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWr-cc-FbT">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWr-cc-FbT">
                                 <rect key="frame" x="111" y="605" width="153" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -103,6 +103,7 @@
                     </view>
                     <connections>
                         <outlet property="Label" destination="0Fa-Pp-tRh" id="yhK-yG-Y4t"/>
+                        <outlet property="beginButton" destination="jWr-cc-FbT" id="J78-a4-ekh"/>
                         <outlet property="label" destination="29C-rw-fnc" id="v2t-FX-onu"/>
                         <segue destination="lfh-jq-poB" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenuWithSegue:" id="NOG-rm-dDz"/>
                         <segue destination="BV1-FR-VrT" kind="show" identifier="hostMoveToAR" id="5ec-7I-Ylq"/>

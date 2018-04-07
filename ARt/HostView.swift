@@ -19,6 +19,7 @@ class HostView: UIViewController{
   
     @IBOutlet var label: UILabel!
     
+    @IBOutlet var beginButton: UIButton!
     
     var sessionName: String!
     var hostSession: SessionManager!
@@ -123,6 +124,7 @@ extension HostView: SessionViewDelegate{
         print("Connection: \(connectedDevices)")
         OperationQueue.main.addOperation {
             self.label.text = "Connected to \(connectedDevices.first ?? "user...")"
+            self.beginButton.isHidden = false
         }
         
     }

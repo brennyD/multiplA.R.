@@ -68,6 +68,7 @@ extension ClientManager : MCNearbyServiceBrowserDelegate {
         NSLog("%@", "foundPeer: \(peerID)")
         NSLog("%@", "invitePeer: \(peerID)")
         browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: 10)
+        browser.stopBrowsingForPeers()
     }
     
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {

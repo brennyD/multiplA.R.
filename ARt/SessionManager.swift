@@ -35,6 +35,7 @@ class SessionManager: NSObject{
         session.delegate = self
         return session
     }()
+
     var delegate: SessionViewDelegate?
     
     
@@ -71,7 +72,7 @@ extension SessionManager : MCNearbyServiceAdvertiserDelegate {
         
         
         invitationHandler(true, self.session)
-      
+        self.advertiser.stopAdvertisingPeer()
 
         
         

@@ -38,7 +38,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="Join Session"/>
                                 <connections>
-                                    <segue destination="8PY-oQ-4jp" kind="show" animates="NO" id="GF1-HL-A7g"/>
+                                    <segue destination="8PY-oQ-4jp" kind="show" id="GF1-HL-A7g"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cD7-bw-MtX">
@@ -47,7 +47,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <state key="normal" title="Host Session"/>
                                 <connections>
-                                    <segue destination="HLh-iu-aOX" kind="show" animates="NO" id="eUH-OI-e23"/>
+                                    <segue destination="HLh-iu-aOX" kind="show" id="eUH-OI-e23"/>
                                 </connections>
                             </button>
                         </subviews>

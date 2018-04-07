@@ -180,7 +180,7 @@
         <!--ARScene-->
         <scene sceneID="0lF-4U-xib">
             <objects>
-                <viewController title="ARScene" id="pI4-lL-zrn" customClass="ViewController" customModule="ARt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="ARScene" id="pI4-lL-zrn" customClass="ClientARViewController" customModule="ARt" customModuleProvider="target" sceneMemberID="viewController">
                     <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="kZi-NL-SWN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

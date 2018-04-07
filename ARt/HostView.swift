@@ -10,14 +10,22 @@ import Foundation
 import UIKit
 import MultipeerConnectivity
 
+
+
+
+
+
+
 class HostView: UIViewController{
     
     
     @IBOutlet weak var ClientTable: UITableView!
 
+    
     var sessionName: String!
     var hostSession: SessionManager!
     
+
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: "unwindToMenu", sender: self)
     }
@@ -33,21 +41,25 @@ class HostView: UIViewController{
             if sessionInput.textFields?.first?.text != "" {
                 self.sessionName = sessionInput.textFields?.first?.text
                 self.hostSession = SessionManager(sessionTitle: self.sessionName)
-            } else {
-                self.present(sessionInput, animated: true)
+                self.hostSession.delegate = self
             }
+    
         }))
         
         
         self.present(sessionInput, animated: true)
-      
+        
     }
     
+    
+    func updateTable() -> Void {
+        
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+
         
         
     }
@@ -77,9 +89,19 @@ class HostView: UIViewController{
      return node
      }
      */
- 
+
     
-    
+}
+
+extension HostView: SessionViewDelegate{
+    func connectedDevicesChanged(manager: SessionManager, connectedDevices: [String]) {
+        print("Connection: \(connectedDevices)")
+    }
     
     
 }
+
+
+
+
+

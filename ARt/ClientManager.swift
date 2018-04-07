@@ -13,7 +13,7 @@ protocol ClientManagerDelegate {
     
     func connectedDevicesChanged(manager : ClientManager, connectedDevices: [String])
     
-    func transitionToSession(manager: ClientManager, actionMesg: String)
+    func transitionToSession(manager: ClientManager)
     
     //func colorChanged(manager : ClientManagerDelegate, colorString: String)
     
@@ -94,7 +94,7 @@ extension ClientManager : MCSessionDelegate {
         let inbox = String(data: data, encoding: .utf8)
         
         if inbox == "SET TO AR SESSION" {
-            self.delegate?.transitionToSession(manager: self, actionMesg: "clientMoveToAR")
+            self.delegate?.transitionToSession(manager: self)
         }
         
         

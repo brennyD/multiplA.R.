@@ -73,6 +73,10 @@ class ClientView: UIViewController{
 }
 
 extension ClientView : ClientManagerDelegate {
+    func transitionToSession(manager: ClientManager, actionMesg: String) {
+        self.performSegue(withIdentifier: actionMesg, sender: self)
+    }
+    
     
     func connectedDevicesChanged(manager: ClientManager, connectedDevices: [String]) {
         OperationQueue.main.addOperation {
@@ -80,6 +84,12 @@ extension ClientView : ClientManagerDelegate {
             print("Connections: \(connectedDevices)")
         }
     }
+    
+    
+    
+    
+    
+    
     
     //        func colorChanged(manager: ColorServiceManager, colorString: String) {
     //            OperationQueue.main.addOperation {

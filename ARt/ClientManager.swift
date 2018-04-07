@@ -12,6 +12,9 @@ import MultipeerConnectivity
 protocol ClientManagerDelegate {
     
     func connectedDevicesChanged(manager : ClientManager, connectedDevices: [String])
+    
+    func transitionToSession(manager: ClientManager, actionMesg: String)
+    
     //func colorChanged(manager : ClientManagerDelegate, colorString: String)
     
 }
@@ -86,6 +89,15 @@ extension ClientManager : MCSessionDelegate {
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         NSLog("%@", "didReceiveData: \(data)")
+        
+        
+        let inbox = String(data: data, encoding: .utf8)
+        
+        if inbox == "SET TO AR SESSION" {
+            self.delegate?.transitionToSession(manager: self, actionMesg: "clientMoveToAR")
+        }
+        
+        
         //let str = String(data: data, encoding: .utf8)!
         //self.delegate?.colorChanged(manager: self, colorString: str)
     }

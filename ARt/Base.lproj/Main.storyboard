@@ -94,7 +94,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Begin Session"/>
                                 <connections>
-                                    <segue destination="BV1-FR-VrT" kind="show" animates="NO" id="CNk-dv-5GU"/>
+                                    <action selector="sessionStart:" destination="HLh-iu-aOX" eventType="touchUpInside" id="u7h-RM-ltt"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Waiting for User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29C-rw-fnc">
@@ -112,6 +112,7 @@
                         <outlet property="Label" destination="0Fa-Pp-tRh" id="yhK-yG-Y4t"/>
                         <outlet property="label" destination="29C-rw-fnc" id="v2t-FX-onu"/>
                         <segue destination="lfh-jq-poB" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenuWithSegue:" id="NOG-rm-dDz"/>
+                        <segue destination="BV1-FR-VrT" kind="show" identifier="hostMoveToAR" id="5ec-7I-Ylq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ndb-wI-bMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -152,6 +153,7 @@
                     </view>
                     <connections>
                         <segue destination="2jk-YE-eVi" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenuWithSegue:" id="yav-qQ-vNC"/>
+                        <segue destination="pI4-lL-zrn" kind="show" identifier="clientMoveToAR" id="Afx-QM-Zo1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4NY-Yk-Yja" userLabel="First Responder" sceneMemberID="firstResponder"/>

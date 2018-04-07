@@ -57,6 +57,22 @@ class SessionManager: NSObject{
     }
     
     
+    func sendStateChange(){
+        print("Sending State change request")
+        if session.connectedPeers.count > 0 {
+            do {
+                try self.session.send("SET TO AR SESSION".data(using: .utf8)!, toPeers: session.connectedPeers, with: .reliable)
+            }
+            catch let error {
+                NSLog("%@", "Error for sending: \(error)")
+            }
+        }
+    }
+    
+    
+    
+    
+    
 
 }
 

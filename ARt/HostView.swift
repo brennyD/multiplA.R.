@@ -23,8 +23,17 @@ class HostView: UIViewController{
     var sessionName: String!
     var hostSession: SessionManager!
     
-
+    @IBAction func sessionStart(_ sender: UIButton) {
+        
+        
+        self.hostSession.sendStateChange()
+        self.performSegue(withIdentifier: "hostMoveToAR", sender: self)
+        
+        
+    }
+    
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
+        
         self.performSegue(withIdentifier: "unwindToMenu", sender: self)
     }
     

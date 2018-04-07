@@ -15,6 +15,10 @@ class HostView: UIViewController{
     
     @IBOutlet weak var ClientTable: UITableView!
 
+    @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "unwindToMenu", sender: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

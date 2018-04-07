@@ -13,8 +13,8 @@ import UIKit
 
 class ClientView: UIViewController{
     
-    
-    
-    
+    @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "unwindToMenu", sender: self)
+    }
 }
 

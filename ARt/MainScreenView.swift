@@ -12,8 +12,7 @@ import UIKit
 
 class MainScreenView: UIViewController{
     
-    
-    
+     @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
     
 }
 

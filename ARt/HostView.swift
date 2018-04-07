@@ -87,11 +87,18 @@ class HostView: UIViewController{
      */
 
     
+    
+    func updateLabel(newText: String){
+        self.label.text = newText
+    }
+    
+    
+    
 }
 
 extension HostView: SessionViewDelegate{
     func labelUpdated(manager: SessionManager, messageString: String) {
-        label.text = messageString
+        self.updateLabel(newText: messageString)
         
          NSLog("%@", "Data received: \(messageString)")
         
@@ -100,6 +107,7 @@ extension HostView: SessionViewDelegate{
     
     func connectedDevicesChanged(manager: SessionManager, connectedDevices: [String]) {
         print("Connection: \(connectedDevices)")
+        self.updateLabel(newText: "Connected")
     }
     
     

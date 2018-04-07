@@ -162,13 +162,19 @@
                     <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="BrB-h1-WRS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="roi-ZA-cNV" appends="YES" id="v1z-hY-qs1"/>
+                        </connections>
                     </arscnView>
                     <connections>
                         <outlet property="initLabel" destination="YGd-7C-VyZ" id="Haj-NA-4ia"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
+                        <segue destination="T3N-1n-3xH" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenuWithSegue:" id="MjA-uY-T8W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <exit id="T3N-1n-3xH" userLabel="Exit" sceneMemberID="exit"/>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YGd-7C-VyZ">
                     <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -176,6 +182,11 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <pinchGestureRecognizer id="roi-ZA-cNV">
+                    <connections>
+                        <action selector="didPinch:" destination="BV1-FR-VrT" id="fdj-nK-kS6"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="458" y="-272"/>
         </scene>
@@ -186,13 +197,19 @@
                     <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="kZi-NL-SWN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="jMi-xO-kOr" appends="YES" id="0r9-Rz-gK7"/>
+                        </connections>
                     </arscnView>
                     <connections>
                         <outlet property="initLabel" destination="1G7-C6-Zg5" id="jpV-Y3-AXf"/>
                         <outlet property="sceneView" destination="kZi-NL-SWN" id="kt7-1j-vLw"/>
+                        <segue destination="a0E-bn-sLm" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenuWithSegue:" id="a7o-MU-d0n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i8l-bs-ogY" sceneMemberID="firstResponder"/>
+                <exit id="a0E-bn-sLm" userLabel="Exit" sceneMemberID="exit"/>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The beat go off?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1G7-C6-Zg5">
                     <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -200,6 +217,11 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <pinchGestureRecognizer id="jMi-xO-kOr">
+                    <connections>
+                        <action selector="didPinch:" destination="pI4-lL-zrn" id="sD0-D4-F2D"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="457" y="404"/>
         </scene>

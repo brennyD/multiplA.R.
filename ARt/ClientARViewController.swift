@@ -15,6 +15,9 @@ import MultipeerConnectivity
 class ClientARViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet var sceneView: ARSCNView!
+    @IBAction func didPinch(_ sender: UIPinchGestureRecognizer) {
+        self.performSegue(withIdentifier: "unwindToMenu", sender: self)
+    }
     
     @IBOutlet var initLabel: UILabel!
     var clientSession: ClientManager!

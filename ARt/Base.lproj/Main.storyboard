@@ -38,7 +38,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="Join Session"/>
                                 <connections>
-                                    <segue destination="aeu-cc-YRN" kind="show" id="WiS-s1-QDY"/>
+                                    <segue destination="8PY-oQ-4jp" kind="show" id="GF1-HL-A7g"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cD7-bw-MtX">
@@ -59,10 +59,25 @@
             </objects>
             <point key="canvasLocation" x="-1130.4000000000001" y="70.614692653673174"/>
         </scene>
-        <!--View Controller-->
+        <!--ClientView Controller-->
+        <scene sceneID="g0c-Wy-oih">
+            <objects>
+                <viewController title="ClientView Controller" id="8PY-oQ-4jp" customClass="ClientView" customModule="ARt" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8Ed-ri-2Lq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="FEx-Wu-shG"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4NY-Yk-Yja" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-346" y="467"/>
+        </scene>
+        <!--ARScene-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="ARt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="ARScene" id="BV1-FR-VrT" customClass="ViewController" customModule="ARt" customModuleProvider="target" sceneMemberID="viewController">
                     <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="BrB-h1-WRS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -74,22 +89,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-346" y="-249"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="U0k-K5-QoP">
-            <objects>
-                <viewController id="aeu-cc-YRN" customClass="ViewController" customModule="ARt" customModuleProvider="target" sceneMemberID="viewController">
-                    <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="rgY-q4-PMK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </arscnView>
-                    <connections>
-                        <outlet property="sceneView" destination="rgY-q4-PMK" id="pVV-cb-D7m"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SJy-Hn-DF5" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-346" y="423"/>
         </scene>
     </scenes>
 </document>

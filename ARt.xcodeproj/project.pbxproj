@@ -15,6 +15,7 @@
 		258030B320782E1900637637 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 258030B120782E1900637637 /* LaunchScreen.storyboard */; };
 		258030BE20782E1900637637 /* ARtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258030BD20782E1900637637 /* ARtTests.swift */; };
 		258030C920782E1900637637 /* ARtUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258030C820782E1900637637 /* ARtUITests.swift */; };
+		258030D72078432700637637 /* ClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258030D62078432700637637 /* ClientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		258030C420782E1900637637 /* ARtUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARtUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		258030C820782E1900637637 /* ARtUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARtUITests.swift; sourceTree = "<group>"; };
 		258030CA20782E1900637637 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		258030D62078432700637637 /* ClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				258030A820782E1700637637 /* art.scnassets */,
 				258030AA20782E1700637637 /* ViewController.swift */,
 				258030AC20782E1700637637 /* Main.storyboard */,
+				258030D62078432700637637 /* ClientView.swift */,
 				258030AF20782E1900637637 /* Assets.xcassets */,
 				258030B120782E1900637637 /* LaunchScreen.storyboard */,
 				258030B420782E1900637637 /* Info.plist */,
@@ -261,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				258030AB20782E1700637637 /* ViewController.swift in Sources */,
+				258030D72078432700637637 /* ClientView.swift in Sources */,
 				258030A720782E1700637637 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

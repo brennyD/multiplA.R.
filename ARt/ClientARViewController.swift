@@ -61,7 +61,7 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
         initLabel = UILabel(frame:CGRect(x:0, y:0, width: sceneView.frame.width, height: 50))
         initLabel.textColor = UIColor.white
         initLabel.font = initLabel.font.withSize(25)
-        initLabel.text = "Pan camera while scene builds"
+        initLabel.text = "Find the origin"
         initLabel.center = CGPoint(x: sceneView.frame.midX, y: (sceneView.frame.midY)+250)
         initLabel.textAlignment = .center
         

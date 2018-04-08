@@ -108,7 +108,7 @@ class HostView: UIViewController{
 }
 
 extension HostView: SessionViewDelegate{
-    func receivePos(manager: ClientManager, newPos: SCNVector3) {
+    func receivePos(manager: SessionManager, newPos: SCNVector3) {
         return
     }
     

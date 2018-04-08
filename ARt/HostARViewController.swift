@@ -58,7 +58,6 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
         initLabel = UILabel(frame:CGRect(x:0, y:0, width: sceneView.frame.width, height: 50))
         initLabel.textColor = UIColor.white
         initLabel.font = initLabel.font.withSize(25)
-        initLabel.text = "Hold down to paint!"
         initLabel.center = CGPoint(x: sceneView.frame.midX, y: (sceneView.frame.midY)+250)
         initLabel.textAlignment = .center
         

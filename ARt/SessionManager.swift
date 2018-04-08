@@ -9,7 +9,7 @@
 import Foundation
 import MultipeerConnectivity
 import UIKit
-
+import SceneKit
 
 
 protocol SessionViewDelegate {
@@ -58,6 +58,28 @@ class SessionManager: NSObject{
     deinit {
         self.advertiser.stopAdvertisingPeer()
     }
+    
+    
+    
+    func sendCoordinate(position: SCNVector3){
+        print("Sending Coordinate \(position)")
+        if session.connectedPeers.count > 0 {
+            do {
+                
+                let packet = NSKeyedArchiver.archivedData(withRootObject: position)
+                
+                /*var temp = "\(coor)"
+                temp.remove(at: String.Index)
+                print(temp)*/
+                
+                try self.session.send( packet, toPeers: session.connectedPeers, with: .reliable)
+            }
+            catch let error {
+                NSLog("%@", "Error for sending: \(error)")
+            }
+        }
+    }
+    
     
     
     func sendStateChange(){
@@ -122,15 +144,18 @@ extension SessionManager : MCSessionDelegate {
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         NSLog("%@", "didReceiveData: \(data)")
         
-        let rMessage = String(data: data, encoding: .utf8)
-        print("DATA RECEIVED \(rMessage ?? "jeff")")
         
-        
-        if rMessage == "SET"{
-            self.delegate?.setOrigin(maanager: self)
+    
+        if let rMessage = String(data: data, encoding: .utf8) as String?{
+            print("DATA RECEIVED \(rMessage)")
+            
+            if rMessage == "SET"{
+                self.delegate?.setOrigin(maanager: self)
+            }
+            self.delegate?.labelUpdated(manager: self, messageString: rMessage)
         }
-        self.delegate?.labelUpdated(manager: self, messageString: rMessage!)
-        
+            
+            
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {

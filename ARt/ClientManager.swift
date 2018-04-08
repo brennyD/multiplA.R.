@@ -8,12 +8,16 @@
 
 import Foundation
 import MultipeerConnectivity
+import SceneKit
 
 protocol ClientManagerDelegate {
     
     func connectedDevicesChanged(manager : ClientManager, connectedDevices: [String])
     
     func transitionToSession(manager: ClientManager)
+    
+    func receivePos(manager: ClientManager, newPos: SCNVector3)
+    
     
     //func colorChanged(manager : ClientManagerDelegate, colorString: String)
     
@@ -97,12 +101,17 @@ extension ClientManager : MCSessionDelegate {
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         NSLog("%@", "didReceiveData: \(data)")
         
-        
-        let inbox = String(data: data, encoding: .utf8)
-        
-        if inbox == "SET TO AR SESSION" {
-            self.delegate?.transitionToSession(manager: self)
+        if let dict = NSKeyedUnarchiver.unarchiveObject(with: data) as! SCNVector3?{
+          self.delegate?.receivePos(manager: self, newPos: dict)
         }
+        
+       else if let inbox = String(data: data, encoding: .utf8) as String?{
+            if inbox == "SET TO AR SESSION" {
+                self.delegate?.transitionToSession(manager: self)
+            }
+        } 
+        
+        
         
         
         //let str = String(data: data, encoding: .utf8)!

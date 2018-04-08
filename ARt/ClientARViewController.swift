@@ -12,7 +12,11 @@ import SpriteKit
 import ARKit
 import MultipeerConnectivity
 
-class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserver {
+class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserver, ClientManagerDelegate{
+ 
+    
+   
+    
     
     @IBOutlet var sceneView: ARSCNView!
     @IBAction func didPinch(_ sender: UIPinchGestureRecognizer) {
@@ -39,6 +43,8 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
 
         sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin]
         
+        
+        clientSession.delegate = self
         
         // Create a new scene
         let scene = SCNScene(named: "art.scnassets/ship.scn")!
@@ -99,6 +105,24 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
      }
      */
     
+    
+    
+    func connectedDevicesChanged(manager: ClientManager, connectedDevices: [String]) {
+        return
+    }
+    
+    func transitionToSession(manager: ClientManager) {
+        return
+    }
+    
+    func receivePos(manager: ClientManager, newPos :SCNVector3) {
+        let newSphere = SCNSphere(radius: 0.01)
+        newSphere.materials.first?.diffuse.contents = UIColor.black
+        let nSphere = SCNNode(geometry: newSphere)
+        nSphere.position = SCNVector3(newPos.y, newPos.z, newPos.x)
+        sceneView.scene.rootNode.addChildNode(nSphere)
+        
+    }
     
     
     //update EACH frame

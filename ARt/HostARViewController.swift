@@ -140,12 +140,20 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
         let sphereNode3 = SCNNode(geometry: sphere3)
         sphereNode3.position = SCNVector3(0.1,0,0)
         
+        let sphere4 = SCNSphere(radius: 0.01)
+        sphere4.materials.first?.diffuse.contents = UIColor.black
+        let sphereNode4 = SCNNode(geometry: sphere4)
+        sphereNode4.position = SCNVector3(0.1,0.1,0.1)
+        
+        
+        
         
         sceneView.scene.rootNode.addChildNode(sphereNode1)
         sceneView.scene.rootNode.addChildNode(sphereNode2)
         sceneView.scene.rootNode.addChildNode(sphereNode3)
+        sceneView.scene.rootNode.addChildNode(sphereNode4)
         
-        
+        hostSession.sendCoordinate(position: sphereNode4.position)
     }
     
     

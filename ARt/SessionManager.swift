@@ -123,7 +123,7 @@ extension SessionManager : MCSessionDelegate {
         NSLog("%@", "didReceiveData: \(data)")
         
         let rMessage = String(data: data, encoding: .utf8)
-        print("DATA RECEIVED \(rMessage)")
+        print("DATA RECEIVED \(rMessage ?? "jeff")")
         
         
         if rMessage == "SET"{

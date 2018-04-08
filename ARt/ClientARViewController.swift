@@ -64,6 +64,8 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
         
+        configuration.worldAlignment = .gravity
+        
         guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Resources", bundle: nil) else {
             fatalError("Missing expected asset catalog resources.")
         }
@@ -111,9 +113,10 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
     func renderer(_ renderer: SCNSceneRenderer,didAdd node: SCNNode, for anchor: ARAnchor){
         
         guard let image = anchor as? ARImageAnchor else {return}
+        
         sceneView.session.setWorldOrigin(relativeTransform: image.transform)
+  
         clientSession.send(message: "SET")
-        sceneView.session.configuration?.worldAlignment = .gravityAndHeading
         
         
     }

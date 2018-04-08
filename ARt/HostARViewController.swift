@@ -32,6 +32,9 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
     var imageView: UIImageView!
     
     
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -75,7 +78,7 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
         
-        
+        configuration.worldAlignment = .gravity
         
         // Run the view's session
         sceneView.session.run(configuration)
@@ -114,13 +117,33 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
     }
     
     func setOrigin(maanager: SessionManager) {
+        
         sceneView.session.setWorldOrigin(relativeTransform: (sceneView.session.currentFrame?.camera.transform)!)
         OperationQueue.main.addOperation {
             self.imageView.removeFromSuperview()
         }
         
-        sceneView.session.configuration?.worldAlignment = .gravityAndHeading
+         let sphere1 = SCNSphere(radius: 0.01)
+         sphere1.materials.first?.diffuse.contents = UIColor.blue
         
+         let sphereNode1 = SCNNode(geometry: sphere1)
+         sphereNode1.position = SCNVector3(0,0,0.1)
+        
+        let sphere2 = SCNSphere(radius: 0.01)
+        sphere2.materials.first?.diffuse.contents = UIColor.green
+        let sphereNode2 = SCNNode(geometry: sphere2)
+        sphereNode2.position = SCNVector3(0,0.1,0)
+        
+     
+        let sphere3 = SCNSphere(radius: 0.01)
+        sphere3.materials.first?.diffuse.contents = UIColor.red
+        let sphereNode3 = SCNNode(geometry: sphere3)
+        sphereNode3.position = SCNVector3(0.1,0,0)
+        
+        
+        sceneView.scene.rootNode.addChildNode(sphereNode1)
+        sceneView.scene.rootNode.addChildNode(sphereNode2)
+        sceneView.scene.rootNode.addChildNode(sphereNode3)
         
         
     }
@@ -138,6 +161,7 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
         
         if didInit == false {
             didInit = true
+            
         }
         
     }

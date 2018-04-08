@@ -9,7 +9,7 @@
 
 import Foundation
 import UIKit
-
+import SceneKit
 
 class ClientView: UIViewController{
     
@@ -85,6 +85,10 @@ class ClientView: UIViewController{
 
 
 extension ClientView : ClientManagerDelegate {
+    func receivePos(manager: ClientManager, newPos: SCNVector3) {
+        return
+    }
+    
     func transitionToSession(manager: ClientManager) {
         
         OperationQueue.main.addOperation {

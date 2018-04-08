@@ -62,7 +62,7 @@
         <!--HostView-->
         <scene sceneID="6b6-NE-TkD">
             <objects>
-                <viewController title="HostView" id="HLh-iu-aOX" customClass="HostView" customModule="multiplAR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="HostView" id="HLh-iu-aOX" customClass="HostView" customModule="multiplAR" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Fa-Pp-tRh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,7 +117,7 @@
         <!--ClientView Controller-->
         <scene sceneID="g0c-Wy-oih">
             <objects>
-                <viewController title="ClientView Controller" id="8PY-oQ-4jp" customClass="ClientView" customModule="ARt" sceneMemberID="viewController">
+                <viewController title="ClientView Controller" id="8PY-oQ-4jp" customClass="ClientView" customModule="multiplAR" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Ed-ri-2Lq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -160,7 +160,7 @@
         <!--HostARScene-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController title="HostARScene" id="BV1-FR-VrT" customClass="HostARViewController" customModule="multiplAR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="HostARScene" id="BV1-FR-VrT" customClass="HostARViewController" customModule="multiplAR" sceneMemberID="viewController">
                     <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="BrB-h1-WRS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -195,7 +195,7 @@
         <!--ClientARScene-->
         <scene sceneID="0lF-4U-xib">
             <objects>
-                <viewController title="ClientARScene" id="pI4-lL-zrn" customClass="ClientARViewController" customModule="multiplAR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="ClientARScene" id="pI4-lL-zrn" customClass="ClientARViewController" customModule="multiplAR" sceneMemberID="viewController">
                     <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="kZi-NL-SWN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

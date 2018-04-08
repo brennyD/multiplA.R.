@@ -17,22 +17,7 @@ class ClientView: UIViewController{
     var send: String!
     var clientSession: ClientManager!
     
-    @IBAction func sendButton(_ sender: UIButton) {
-        let nameInput = UIAlertController(title: "Input message to send", message: nil, preferredStyle: .alert)
-        
-        nameInput.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        nameInput.addTextField(configurationHandler: {textField in textField.placeholder = "" })
-        nameInput.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in
-            if nameInput.textFields?.first?.text != "" {
-                self.send = nameInput.textFields?.first?.text
-                self.clientSession.send(message: self.send)
-            } else {
-                self.present(nameInput, animated: true)
-            }
-        } ))
-        
-        self.present(nameInput, animated: true)
-    }
+   
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: "unwindToMenu", sender: self)
     }

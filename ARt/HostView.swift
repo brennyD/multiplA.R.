@@ -108,6 +108,10 @@ class HostView: UIViewController{
 }
 
 extension HostView: SessionViewDelegate{
+    func setOrigin(maanager: SessionManager) {
+            return
+    }
+    
     func labelUpdated(manager: SessionManager, messageString: String) {
         
         

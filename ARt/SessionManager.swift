@@ -20,6 +20,9 @@ protocol SessionViewDelegate {
     
     func labelUpdated(manager: SessionManager, messageString: String)
     
+    func setOrigin(maanager: SessionManager)
+    
+    
     
 }
 
@@ -121,6 +124,11 @@ extension SessionManager : MCSessionDelegate {
         
         let rMessage = String(data: data, encoding: .utf8)
         print("data received")
+        
+        
+        if rMessage == "SET"{
+            self.delegate?.setOrigin(maanager: self)
+        }
         self.delegate?.labelUpdated(manager: self, messageString: rMessage!)
         
     }

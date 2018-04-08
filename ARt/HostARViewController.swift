@@ -12,7 +12,9 @@ import ARKit
 import MultipeerConnectivity
 
 
-class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserver {
+class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserver, SessionViewDelegate{
+
+    
 
     @IBOutlet var sceneView: ARSCNView!
     
@@ -27,11 +29,13 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
     
     var didInit: Bool!
     
+    var imageView: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        hostSession.delegate = self
         
         // Set the view's delegate
         sceneView.delegate = self
@@ -53,9 +57,12 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
         didInit = false
         anchorImage = UIImage(named: "art.scnassets/refrenceImage.png")
      
-        let imageView = UIImageView(image: anchorImage!)
-        imageView.isOpaque = true
         
+        imageView = UIImageView(image: anchorImage!)
+        imageView.contentMode = .scaleAspectFit
+        imageView.isOpaque = true
+        imageView.frame = UIScreen.main.bounds
+        imageView.contentMode = .scaleAspectFit
         // Set the scene to the view
         sceneView.scene = scene
         sceneView.addSubview(initLabel)
@@ -97,6 +104,20 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
     }
 */
     
+    
+    func connectedDevicesChanged(manager: SessionManager, connectedDevices: [String]) {
+        
+    }
+    
+    func labelUpdated(manager: SessionManager, messageString: String) {
+        return
+    }
+    
+    func setOrigin(maanager: SessionManager) {
+        sceneView.session.setWorldOrigin(relativeTransform: (sceneView.session.currentFrame?.camera.transform)!)
+        imageView.removeFromSuperview()
+        
+    }
     
     
     //update EACH frame

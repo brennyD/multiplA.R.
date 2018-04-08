@@ -13,6 +13,10 @@ import MultipeerConnectivity
 
 
 class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserver, SessionViewDelegate{
+    
+    
+   
+    
 
     
 
@@ -33,7 +37,7 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
     
     var sessionStart: Bool!
     
-    
+    var cameraTrack: SCNNode!
     
     
     override func viewDidLoad() {
@@ -63,6 +67,11 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
         anchorImage = UIImage(named: "art.scnassets/refrenceImage.png")
      
         
+        let sphere = SCNSphere(radius: 0.01)
+        sphere.materials.first?.diffuse.contents = UIColor.white
+        cameraTrack = SCNNode(geometry: sphere)
+        cameraTrack.position = SCNVector3(0.0,0.0,0.0)
+        
         imageView = UIImageView(image: anchorImage!)
         imageView.contentMode = .scaleAspectFit
         imageView.isOpaque = true
@@ -72,6 +81,7 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
         sceneView.scene = scene
         sceneView.addSubview(initLabel)
         sceneView.addSubview(imageView)
+        sceneView.scene.rootNode.addChildNode(cameraTrack)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -126,6 +136,14 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
         }
         
         sessionStart = true
+        
+    }
+    
+    
+    func receivePos(manager: SessionManager, newPos: SCNVector3) {
+        
+        cameraTrack.position = SCNVector3(newPos.z, newPos.x, newPos.y)
+        
         
     }
     

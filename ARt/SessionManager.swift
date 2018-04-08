@@ -17,6 +17,7 @@ protocol SessionViewDelegate {
     func connectedDevicesChanged(manager : SessionManager, connectedDevices: [String])
    // func colorChanged(manager : SessionManager, colorString: String)
     
+     func receivePos(manager: SessionManager, newPos: SCNVector3)
     
     func labelUpdated(manager: SessionManager, messageString: String)
     
@@ -144,9 +145,10 @@ extension SessionManager : MCSessionDelegate {
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         NSLog("%@", "didReceiveData: \(data)")
         
-        
-    
-        if let rMessage = String(data: data, encoding: .utf8) as String?{
+        if let dict = NSKeyedUnarchiver.unarchiveObject(with: data) as! SCNVector3?{
+            self.delegate?.receivePos(manager: self, newPos: dict)
+        }
+        else if let rMessage = String(data: data, encoding: .utf8) as String?{
             print("DATA RECEIVED \(rMessage)")
             
             if rMessage == "SET"{

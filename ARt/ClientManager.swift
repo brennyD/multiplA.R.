@@ -68,6 +68,24 @@ class ClientManager : NSObject {
         return self.session.connectedPeers
     }
     
+    func sendCoordinate(position: SCNVector3){
+        print("Sending Coordinate \(position)")
+        if session.connectedPeers.count > 0 {
+            do {
+                
+                let packet = NSKeyedArchiver.archivedData(withRootObject: position)
+                
+                /*var temp = "\(coor)"
+                 temp.remove(at: String.Index)
+                 print(temp)*/
+                
+                try self.session.send( packet, toPeers: session.connectedPeers, with: .reliable)
+            }
+            catch let error {
+                NSLog("%@", "Error for sending: \(error)")
+            }
+        }
+    }
     
     
 }
@@ -90,6 +108,12 @@ extension ClientManager : MCNearbyServiceBrowserDelegate {
     }
     
 }
+
+
+
+
+
+
 
 extension ClientManager : MCSessionDelegate {
     

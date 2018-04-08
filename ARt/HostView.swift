@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import MultipeerConnectivity
-
+import SceneKit
 
 
 
@@ -108,6 +108,10 @@ class HostView: UIViewController{
 }
 
 extension HostView: SessionViewDelegate{
+    func receivePos(manager: ClientManager, newPos: SCNVector3) {
+        return
+    }
+    
     func setOrigin(maanager: SessionManager) {
             return
     }

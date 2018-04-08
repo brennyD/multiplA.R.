@@ -27,7 +27,7 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
     var clientSession: ClientManager!
     
     var didInit: Bool!
-    
+    var sessionStart: Bool!
     
     var cameraTrack: SCNNode!
     
@@ -65,7 +65,7 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
         initLabel.center = CGPoint(x: sceneView.frame.midX, y: (sceneView.frame.midY)+250)
         initLabel.textAlignment = .center
         
-        
+        sessionStart = false
         didInit = false
         
         // Set the scene to the view
@@ -116,6 +116,17 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
      */
     
     
+    func renderer(_ renderer: SCNSceneRenderer,
+                  updateAtTime time: TimeInterval){
+        if sessionStart == true{
+            let pos = SCNVector3((sceneView.session.currentFrame?.camera.transform.columns.3.x)!, (sceneView.session.currentFrame?.camera.transform.columns.3.y)!, (sceneView.session.currentFrame?.camera.transform.columns.3.z)!)
+            print("SENT")
+            clientSession.sendCoordinate(position: pos)
+        }
+        
+    }
+    
+    
     
     func connectedDevicesChanged(manager: ClientManager, connectedDevices: [String]) {
         return
@@ -148,6 +159,7 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
         sceneView.session.setWorldOrigin(relativeTransform: image.transform)
   
         clientSession.send(message: "SET")
+        sessionStart = true
         
         
     }

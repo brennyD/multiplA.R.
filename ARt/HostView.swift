@@ -39,7 +39,7 @@ class HostView: UIViewController{
     
     
     override func viewDidAppear(_ animated: Bool) {
-        let sessionInput = UIAlertController(title: "Input session name", message: nil, preferredStyle: .alert)
+        let sessionInput = UIAlertController(title: "Input host name", message: nil, preferredStyle: .alert)
         
         sessionInput.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in self.performSegue(withIdentifier: "unwindToMenu", sender: self) }))
         sessionInput.addTextField(configurationHandler: {textField in textField.placeholder = ""})

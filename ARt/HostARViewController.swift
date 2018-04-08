@@ -132,8 +132,9 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
         sceneView.session.setWorldOrigin(relativeTransform: (sceneView.session.currentFrame?.camera.transform)!)
         OperationQueue.main.addOperation {
             self.imageView.removeFromSuperview()
+            self.initLabel.text = "Now Tracking \(self.hostSession.showPeers().first?.displayName ?? "Client")"
         }
-        
+       
         sessionStart = true
         
     }
@@ -146,14 +147,13 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
         
     }
     
-    
-    //update EACH frame
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
 
         
         
     }
     
+    //updates EACH frame, sends current position to client
     func renderer(_ renderer: SCNSceneRenderer,
                   updateAtTime time: TimeInterval){
         if sessionStart == true{

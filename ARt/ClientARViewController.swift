@@ -115,7 +115,7 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
      }
      */
     
-    
+    //updates EACH frame, sends current position to Host
     func renderer(_ renderer: SCNSceneRenderer,
                   updateAtTime time: TimeInterval){
         if sessionStart == true{
@@ -143,7 +143,7 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
     
 
     
-    //update EACH frame
+    
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         
         
@@ -156,8 +156,15 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
         
         guard let image = anchor as? ARImageAnchor else {return}
         
+        
         sceneView.session.setWorldOrigin(relativeTransform: image.transform)
-  
+        
+        
+        OperationQueue.main.addOperation {
+            self.initLabel.text = "Now Tracking \(self.clientSession.showPeers().first?.displayName ?? "Host")"
+        }
+        
+        
         clientSession.send(message: "SET")
         sessionStart = true
         

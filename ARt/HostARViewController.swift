@@ -115,7 +115,10 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
     
     func setOrigin(maanager: SessionManager) {
         sceneView.session.setWorldOrigin(relativeTransform: (sceneView.session.currentFrame?.camera.transform)!)
-        imageView.removeFromSuperview()
+        OperationQueue.main.addOperation {
+          self.imageView.removeFromSuperview()
+        }
+        
         
     }
     

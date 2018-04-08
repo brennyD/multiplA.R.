@@ -50,7 +50,7 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
         initLabel = UILabel(frame:CGRect(x:0, y:0, width: sceneView.frame.width, height: 50))
         initLabel.textColor = UIColor.white
         initLabel.font = initLabel.font.withSize(25)
-        initLabel.text = "Pan camera while scene builds"
+        initLabel.text = "Hold down to paint!"
         initLabel.center = CGPoint(x: sceneView.frame.midX, y: (sceneView.frame.midY)+250)
         initLabel.textAlignment = .center
         
@@ -116,8 +116,11 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
     func setOrigin(maanager: SessionManager) {
         sceneView.session.setWorldOrigin(relativeTransform: (sceneView.session.currentFrame?.camera.transform)!)
         OperationQueue.main.addOperation {
-          self.imageView.removeFromSuperview()
+            self.imageView.removeFromSuperview()
         }
+        
+        sceneView.session.configuration?.worldAlignment = .gravityAndHeading
+        
         
         
     }

@@ -113,7 +113,7 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
         guard let image = anchor as? ARImageAnchor else {return}
         sceneView.session.setWorldOrigin(relativeTransform: image.transform)
         clientSession.send(message: "SET")
-        
+        sceneView.session.configuration?.worldAlignment = .gravityAndHeading
         
         
     }

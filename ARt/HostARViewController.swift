@@ -31,6 +31,7 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
     
     var imageView: UIImageView!
     
+    var sessionStart: Bool!
     
     
     
@@ -57,6 +58,7 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
         initLabel.center = CGPoint(x: sceneView.frame.midX, y: (sceneView.frame.midY)+250)
         initLabel.textAlignment = .center
         
+        sessionStart = false
         didInit = false
         anchorImage = UIImage(named: "art.scnassets/refrenceImage.png")
      
@@ -123,22 +125,28 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
             self.imageView.removeFromSuperview()
         }
         
-        
+        sessionStart = true
         
     }
     
     
     //update EACH frame
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
-        
-        
-        
-        let pos = SCNVector3(frame.camera.transform.columns.3.x, frame.camera.transform.columns.3.y, frame.camera.transform.columns.3.z)
-        
-        hostSession.sendCoordinate(position: pos)
+
         
         
     }
+    
+    func renderer(_ renderer: SCNSceneRenderer,
+                  updateAtTime time: TimeInterval){
+        if sessionStart == true{
+            let pos = SCNVector3((sceneView.session.currentFrame?.camera.transform.columns.3.x)!, (sceneView.session.currentFrame?.camera.transform.columns.3.y)!, (sceneView.session.currentFrame?.camera.transform.columns.3.z)!)
+            print("SENT")
+            hostSession.sendCoordinate(position: pos)
+        }
+        
+    }
+    
     
     
     func session(_ session: ARSession,cameraDidChangeTrackingState camera: ARCamera){

@@ -71,6 +71,7 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
         // Set the scene to the view
         sceneView.scene = scene
         sceneView.addSubview(initLabel)
+        sceneView.scene.rootNode.addChildNode(cameraTrack)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -129,6 +130,7 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
         
     }
     
+
     
     //update EACH frame
     func session(_ session: ARSession, didUpdate frame: ARFrame) {

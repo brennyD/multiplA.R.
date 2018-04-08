@@ -18,7 +18,6 @@
 		258030DB20784AED00637637 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258030DA20784AED00637637 /* MainScreenView.swift */; };
 		258030E320784F3200637637 /* HostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258030E220784F3100637637 /* HostView.swift */; };
 		25B88DE720786B9B004BE38B /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B88DE620786B9B004BE38B /* SessionManager.swift */; };
-		25CD66DD207988CA00ACB213 /* ARReference.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25CD66DC207988CA00ACB213 /* ARReference.xcassets */; };
 		BF58A3E120786E5B001EE370 /* ClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF58A3E020786E5B001EE370 /* ClientManager.swift */; };
 		BF58A3E4207922CD001EE370 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF58A3E2207922CD001EE370 /* Main.storyboard */; };
 		BFC91DE62079405C00FA320A /* ClientARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC91DE52079405C00FA320A /* ClientARViewController.swift */; };
@@ -59,7 +58,6 @@
 		258030DA20784AED00637637 /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 		258030E220784F3100637637 /* HostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostView.swift; sourceTree = "<group>"; };
 		25B88DE620786B9B004BE38B /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
-		25CD66DC207988CA00ACB213 /* ARReference.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ARReference.xcassets; sourceTree = "<group>"; };
 		BF58A3E020786E5B001EE370 /* ClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientManager.swift; sourceTree = "<group>"; };
 		BF58A3E3207922CD001EE370 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BFC91DE52079405C00FA320A /* ClientARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientARViewController.swift; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 				258030A820782E1700637637 /* art.scnassets */,
 				258030AF20782E1900637637 /* Assets.xcassets */,
 				258030B420782E1900637637 /* Info.plist */,
-				25CD66DC207988CA00ACB213 /* ARReference.xcassets */,
 			);
 			path = ARt;
 			sourceTree = "<group>";
@@ -255,7 +252,6 @@
 			files = (
 				258030A920782E1700637637 /* art.scnassets in Resources */,
 				258030B320782E1900637637 /* LaunchScreen.storyboard in Resources */,
-				25CD66DD207988CA00ACB213 /* ARReference.xcassets in Resources */,
 				258030B020782E1900637637 /* Assets.xcassets in Resources */,
 				BF58A3E4207922CD001EE370 /* Main.storyboard in Resources */,
 			);

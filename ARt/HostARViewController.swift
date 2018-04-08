@@ -21,6 +21,8 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
     }
     @IBOutlet var initLabel: UILabel!
     
+    var anchorImage: UIImage!
+    
     var hostSession: SessionManager!
     
     var didInit: Bool!
@@ -49,10 +51,15 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
         initLabel.textAlignment = .center
         
         didInit = false
+        anchorImage = UIImage(named: "art.scnassets/refrenceImage.png")
+     
+        let imageView = UIImageView(image: anchorImage!)
+        imageView.isOpaque = true
         
         // Set the scene to the view
         sceneView.scene = scene
         sceneView.addSubview(initLabel)
+        sceneView.addSubview(imageView)
     }
     
     override func viewWillAppear(_ animated: Bool) {

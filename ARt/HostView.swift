@@ -24,6 +24,7 @@ class HostView: UIViewController{
     var sessionName: String!
     var hostSession: SessionManager!
     
+    
     @IBAction func sessionStart(_ sender: UIButton) {
         self.hostSession.sendStateChange()
         self.performSegue(withIdentifier: "hostMoveToAR", sender: self)

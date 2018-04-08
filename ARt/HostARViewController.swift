@@ -123,43 +123,19 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
             self.imageView.removeFromSuperview()
         }
         
-         let sphere1 = SCNSphere(radius: 0.01)
-         sphere1.materials.first?.diffuse.contents = UIColor.blue
-        
-         let sphereNode1 = SCNNode(geometry: sphere1)
-         sphereNode1.position = SCNVector3(0,0,0.1)
-        
-        let sphere2 = SCNSphere(radius: 0.01)
-        sphere2.materials.first?.diffuse.contents = UIColor.green
-        let sphereNode2 = SCNNode(geometry: sphere2)
-        sphereNode2.position = SCNVector3(0,0.1,0)
-        
-     
-        let sphere3 = SCNSphere(radius: 0.01)
-        sphere3.materials.first?.diffuse.contents = UIColor.red
-        let sphereNode3 = SCNNode(geometry: sphere3)
-        sphereNode3.position = SCNVector3(0.1,0,0)
-        
-        let sphere4 = SCNSphere(radius: 0.01)
-        sphere4.materials.first?.diffuse.contents = UIColor.black
-        let sphereNode4 = SCNNode(geometry: sphere4)
-        sphereNode4.position = SCNVector3(0.1,0.1,0.1)
         
         
-        
-        
-        sceneView.scene.rootNode.addChildNode(sphereNode1)
-        sceneView.scene.rootNode.addChildNode(sphereNode2)
-        sceneView.scene.rootNode.addChildNode(sphereNode3)
-        sceneView.scene.rootNode.addChildNode(sphereNode4)
-        
-        hostSession.sendCoordinate(position: sphereNode4.position)
     }
     
     
     //update EACH frame
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         
+        
+        
+        let pos = SCNVector3(frame.camera.transform.columns.3.x, frame.camera.transform.columns.3.y, frame.camera.transform.columns.3.z)
+        
+        hostSession.sendCoordinate(position: pos)
         
         
     }

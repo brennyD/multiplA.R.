@@ -29,6 +29,10 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
     var didInit: Bool!
     
     
+    var cameraTrack: SCNNode!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,6 +47,11 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
 
         sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin]
         
+        let partnerSphere = SCNSphere(radius: 0.01)
+        partnerSphere.materials.first?.diffuse.contents = UIColor.white
+        
+        cameraTrack = SCNNode(geometry: partnerSphere)
+        cameraTrack.position = SCNVector3(0,0,0)
         
         clientSession.delegate = self
         
@@ -116,11 +125,7 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
     }
     
     func receivePos(manager: ClientManager, newPos :SCNVector3) {
-        let newSphere = SCNSphere(radius: 0.01)
-        newSphere.materials.first?.diffuse.contents = UIColor.black
-        let nSphere = SCNNode(geometry: newSphere)
-        nSphere.position = SCNVector3(newPos.y, newPos.z, newPos.x)
-        sceneView.scene.rootNode.addChildNode(nSphere)
+        cameraTrack.position = SCNVector3(newPos.y, newPos.z, newPos.x)
         
     }
     

@@ -56,7 +56,7 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
         clientSession.delegate = self
         
         // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        let scene = SCNScene()
         
         initLabel = UILabel(frame:CGRect(x:0, y:0, width: sceneView.frame.width, height: 50))
         initLabel.textColor = UIColor.white

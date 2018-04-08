@@ -53,7 +53,7 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
         
         sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin]
         
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        let scene = SCNScene()
         
         initLabel = UILabel(frame:CGRect(x:0, y:0, width: sceneView.frame.width, height: 50))
         initLabel.textColor = UIColor.white

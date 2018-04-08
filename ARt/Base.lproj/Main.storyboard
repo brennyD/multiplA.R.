@@ -13,7 +13,7 @@
         <!--Main Menu-->
         <scene sceneID="KS7-aQ-0Ir">
             <objects>
-                <viewController title="Main Menu" id="zGO-Ux-yBi" customClass="MainScreenView" customModule="ARt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Main Menu" id="zGO-Ux-yBi" customClass="MainScreenView" customModule="multiplAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wey-bb-IOG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,7 +62,7 @@
         <!--HostView-->
         <scene sceneID="6b6-NE-TkD">
             <objects>
-                <viewController title="HostView" id="HLh-iu-aOX" customClass="HostView" customModule="ARt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="HostView" id="HLh-iu-aOX" customClass="HostView" customModule="multiplAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Fa-Pp-tRh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,7 +90,7 @@
                                     <action selector="sessionStart:" destination="HLh-iu-aOX" eventType="touchUpInside" id="u7h-RM-ltt"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Waiting for User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29C-rw-fnc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Waiting for User" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29C-rw-fnc">
                                 <rect key="frame" x="16" y="285" width="343" height="96"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -160,7 +160,7 @@
         <!--HostARScene-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController title="HostARScene" id="BV1-FR-VrT" customClass="HostARViewController" customModule="ARt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="HostARScene" id="BV1-FR-VrT" customClass="HostARViewController" customModule="multiplAR" customModuleProvider="target" sceneMemberID="viewController">
                     <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="BrB-h1-WRS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -195,7 +195,7 @@
         <!--ClientARScene-->
         <scene sceneID="0lF-4U-xib">
             <objects>
-                <viewController title="ClientARScene" id="pI4-lL-zrn" customClass="ClientARViewController" customModule="ARt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="ClientARScene" id="pI4-lL-zrn" customClass="ClientARViewController" customModule="multiplAR" customModuleProvider="target" sceneMemberID="viewController">
                     <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="kZi-NL-SWN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

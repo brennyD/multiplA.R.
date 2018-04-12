@@ -31,6 +31,8 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
     
     var cameraTrack: SCNNode!
     
+    var dotAnchor: ARAnchor!
+    
     
     
     override func viewDidLoad() {
@@ -53,6 +55,10 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
         cameraTrack = SCNNode(geometry: partnerSphere)
         cameraTrack.position = SCNVector3(0,0,0)
         
+        
+        dotAnchor = ARAnchor(transform: cameraTrack.simdWorldTransform)
+        
+        
         clientSession.delegate = self
         
         // Create a new scene
@@ -71,6 +77,7 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
         // Set the scene to the view
         sceneView.scene = scene
         sceneView.addSubview(initLabel)
+        sceneView.session.add(anchor: dotAnchor)
         sceneView.scene.rootNode.addChildNode(cameraTrack)
     }
     
@@ -136,8 +143,12 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
         return
     }
     
+    //ADDED ANCHOR UPDATES ??
     func receivePos(manager: ClientManager, newPos :SCNVector3) {
         cameraTrack.position = SCNVector3(newPos.y, newPos.z, newPos.x)
+        sceneView.session.remove(anchor: dotAnchor)
+        dotAnchor = ARAnchor(transform: cameraTrack.simdWorldTransform)
+        sceneView.session.add(anchor: dotAnchor)
         
     }
     
@@ -155,6 +166,7 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
     func renderer(_ renderer: SCNSceneRenderer,didAdd node: SCNNode, for anchor: ARAnchor){
         
         guard let image = anchor as? ARImageAnchor else {return}
+        
         
         
         sceneView.session.setWorldOrigin(relativeTransform: image.transform)

@@ -39,6 +39,8 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
     
     var cameraTrack: SCNNode!
     
+    var dotAnchor: ARAnchor!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +73,10 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
         cameraTrack = SCNNode(geometry: sphere)
         cameraTrack.position = SCNVector3(0.0,0.0,0.0)
         
+        
+        dotAnchor = ARAnchor(transform: cameraTrack.simdWorldTransform)
+        
+        sceneView.session.add(anchor: dotAnchor)
         imageView = UIImageView(image: anchorImage!)
         imageView.contentMode = .scaleAspectFit
         imageView.isOpaque = true
@@ -143,7 +149,9 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
     func receivePos(manager: SessionManager, newPos: SCNVector3) {
         
         cameraTrack.position = SCNVector3(newPos.z, newPos.x, newPos.y)
-        
+        sceneView.session.remove(anchor: dotAnchor)
+        dotAnchor = ARAnchor(transform: cameraTrack.simdWorldTransform)
+        sceneView.session.add(anchor: dotAnchor)
         
     }
     

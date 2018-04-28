@@ -33,6 +33,11 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
     
     var didInit: Bool!
     
+    
+    var isPressed: UILongPressGestureRecognizer!
+    
+    var painter: Bool!
+    
     var imageView: UIImageView!
     
     var sessionStart: Bool!
@@ -68,6 +73,11 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
         didInit = false
         anchorImage = UIImage(named: "art.scnassets/refrenceImage.png")
      
+        
+        isPressed = UILongPressGestureRecognizer(target: self, action: nil)
+        painter = false
+        
+        
         
         let sphere = SCNSphere(radius: 0.01)
         sphere.materials.first?.diffuse.contents = UIColor.white
@@ -174,6 +184,23 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
             let pos = SCNVector3((sceneView.session.currentFrame?.camera.transform.columns.3.x)!, (sceneView.session.currentFrame?.camera.transform.columns.3.y)!, (sceneView.session.currentFrame?.camera.transform.columns.3.z)!)
             print("SENT")
             hostSession.sendCoordinate(position: pos)
+            
+            
+            if(isPressed.state == .began){
+                painter = !painter
+            }
+            
+            if painter == true{
+                
+                let paint = SCNSphere(radius: 0.01)
+                paint.materials.first?.diffuse.contents = UIColor.white
+                let temp = SCNNode(geometry: paint)
+                temp.position = SCNVector3((sceneView.session.currentFrame?.camera.transform.columns.3.x)!, (sceneView.session.currentFrame?.camera.transform.columns.3.y)!, (sceneView.session.currentFrame?.camera.transform.columns.3.z)!)
+                sceneView.scene.rootNode.addChildNode(temp)
+            }
+            
+            
+            
         }
         
     }

@@ -29,6 +29,13 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
     var didInit: Bool!
     var sessionStart: Bool!
     
+    
+    var isPressed: UILongPressGestureRecognizer!
+    var painter: Bool!
+    
+    
+    
+    
     var cameraTrack: SCNNode!
     
     var dotAnchor: ARAnchor!
@@ -56,7 +63,18 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
         cameraTrack.position = SCNVector3(0,0,0)
         
         
+        
+        
+        painter = false
         dotAnchor = ARAnchor(transform: cameraTrack.simdWorldTransform)
+        
+        
+        isPressed = UILongPressGestureRecognizer(target: self, action: nil)
+        isPressed.minimumPressDuration = 0.001
+        
+        sceneView.addGestureRecognizer(isPressed)
+        
+        
         
         
         clientSession.delegate = self
@@ -132,10 +150,28 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
             let pos = SCNVector3((sceneView.session.currentFrame?.camera.transform.columns.3.x)!, (sceneView.session.currentFrame?.camera.transform.columns.3.y)!, (sceneView.session.currentFrame?.camera.transform.columns.3.z)!)
             print("SENT")
             clientSession.sendCoordinate(position: pos)
+ 
+            
+            if(isPressed.state == .began){
+                painter = !painter
+            }
+            
+            
+            if painter == true{
+                
+                let paint = SCNSphere(radius: 0.01)
+                paint.materials.first?.diffuse.contents = UIColor.white
+                let temp = SCNNode(geometry: paint)
+                temp.position = SCNVector3((sceneView.session.currentFrame?.camera.transform.columns.3.x)!, (sceneView.session.currentFrame?.camera.transform.columns.3.y)!, (sceneView.session.currentFrame?.camera.transform.columns.3.z)!)
+                sceneView.scene.rootNode.addChildNode(temp)
+            }
+            
+            
+            
+            
         }
         
     }
-    
     
     
     func connectedDevicesChanged(manager: ClientManager, connectedDevices: [String]) {
@@ -149,6 +185,8 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
     //ADDED ANCHOR UPDATES ??
     func receivePos(manager: ClientManager, newPos :SCNVector3) {
         cameraTrack.position = SCNVector3(newPos.y, newPos.z, newPos.x)
+        
+        
         /*sceneView.session.remove(anchor: dotAnchor)
         dotAnchor = ARAnchor(transform: cameraTrack.simdWorldTransform)
         sceneView.session.add(anchor: dotAnchor)*/
@@ -161,6 +199,14 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         
         
+        
+    }
+    
+    
+    
+    //handles pressed event
+    @IBAction
+    func paintPress(sender: UILongPressGestureRecognizer){
         
     }
     
@@ -200,8 +246,6 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
         
         
     }
-    
-    
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user

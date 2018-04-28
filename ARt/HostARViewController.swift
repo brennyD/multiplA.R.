@@ -60,6 +60,7 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
         initLabel = UILabel(frame:CGRect(x:0, y:0, width: sceneView.frame.width, height: 50))
         initLabel.textColor = UIColor.white
         initLabel.font = initLabel.font.withSize(25)
+        initLabel.text = "Move camera to initialize session"
         initLabel.center = CGPoint(x: sceneView.frame.midX, y: (sceneView.frame.midY)+250)
         initLabel.textAlignment = .center
         
@@ -85,7 +86,7 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
         // Set the scene to the view
         sceneView.scene = scene
         sceneView.addSubview(initLabel)
-        sceneView.addSubview(imageView)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -93,6 +94,10 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
         
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
+        
+        
+        configuration.planeDetection = [.horizontal, .vertical]
+        
         
         configuration.worldAlignment = .gravity
         
@@ -148,9 +153,11 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
     func receivePos(manager: SessionManager, newPos: SCNVector3) {
         
         cameraTrack.position = SCNVector3(newPos.z, newPos.x, newPos.y)
+        /*
         sceneView.session.remove(anchor: dotAnchor)
         dotAnchor = ARAnchor(transform: cameraTrack.simdWorldTransform)
         sceneView.session.add(anchor: dotAnchor)
+        */
         
     }
     
@@ -175,12 +182,25 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
     
     func session(_ session: ARSession,cameraDidChangeTrackingState camera: ARCamera){
         
-        if didInit == false {
-            didInit = true
-            
-        }
+       
         
     }
+    
+    
+    
+    func renderer(_ renderer: SCNSceneRenderer,didAdd node: SCNNode, for anchor: ARAnchor){
+        
+        guard let tempAnch = anchor as? ARPlaneAnchor else {return}
+        
+            if didInit == false{
+                OperationQueue.main.addOperation {
+                    self.sceneView.addSubview(self.imageView)
+                }
+                didInit = true
+            }
+        
+    }
+    
     
     
     func session(_ session: ARSession, didFailWithError error: Error) {

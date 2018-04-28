@@ -67,7 +67,7 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
         initLabel = UILabel(frame:CGRect(x:0, y:0, width: sceneView.frame.width, height: 50))
         initLabel.textColor = UIColor.white
         initLabel.font = initLabel.font.withSize(25)
-        initLabel.text = "Find the origin"
+        initLabel.text = "Move camera to initialize session"
         initLabel.center = CGPoint(x: sceneView.frame.midX, y: (sceneView.frame.midY)+250)
         initLabel.textAlignment = .center
         
@@ -87,6 +87,10 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
         let configuration = ARWorldTrackingConfiguration()
         
         configuration.worldAlignment = .gravity
+        
+        configuration.planeDetection = [.horizontal, .vertical]
+        
+        
         
         guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Resources", bundle: nil) else {
             fatalError("Missing expected asset catalog resources.")
@@ -145,9 +149,9 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
     //ADDED ANCHOR UPDATES ??
     func receivePos(manager: ClientManager, newPos :SCNVector3) {
         cameraTrack.position = SCNVector3(newPos.y, newPos.z, newPos.x)
-        sceneView.session.remove(anchor: dotAnchor)
+        /*sceneView.session.remove(anchor: dotAnchor)
         dotAnchor = ARAnchor(transform: cameraTrack.simdWorldTransform)
-        sceneView.session.add(anchor: dotAnchor)
+        sceneView.session.add(anchor: dotAnchor)*/
         
     }
     
@@ -164,9 +168,18 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
     //Anchor of any kind is added
     func renderer(_ renderer: SCNSceneRenderer,didAdd node: SCNNode, for anchor: ARAnchor){
         
+        
+        if didInit == false{
+            guard let tempAnch = anchor as? ARPlaneAnchor else {return}
+            
+            didInit = true
+            
+            OperationQueue.main.addOperation {
+                self.initLabel.text = "Point to the image!"
+            }
+        }
+        else{
         guard let image = anchor as? ARImageAnchor else {return}
-        
-        
         
         sceneView.session.setWorldOrigin(relativeTransform: image.transform)
         sceneView.scene.rootNode.addChildNode(cameraTrack)
@@ -178,17 +191,13 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
         
         clientSession.send(message: "SET")
         sessionStart = true
-        
+        }
         
     }
     
     
     func session(_ session: ARSession,cameraDidChangeTrackingState camera: ARCamera){
         
-        if didInit == false {
-            didInit = true
-            initLabel.text = "Point to the image!"
-        }
         
     }
     

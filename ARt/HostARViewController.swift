@@ -53,7 +53,7 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = false
         
-        sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin]
+       // sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin]
         
         let scene = SCNScene()
         
@@ -86,7 +86,6 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
         sceneView.scene = scene
         sceneView.addSubview(initLabel)
         sceneView.addSubview(imageView)
-        sceneView.scene.rootNode.addChildNode(cameraTrack)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -140,7 +139,7 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
             self.imageView.removeFromSuperview()
             self.initLabel.text = "Now Tracking \(self.hostSession.showPeers().first?.displayName ?? "Client")"
         }
-       
+        sceneView.scene.rootNode.addChildNode(cameraTrack)
         sessionStart = true
         
     }

@@ -47,7 +47,7 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = false
 
-        sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin]
+       // sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin]
         
         let partnerSphere = SCNSphere(radius: 0.01)
         partnerSphere.materials.first?.diffuse.contents = UIColor.white
@@ -78,7 +78,6 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
         sceneView.scene = scene
         sceneView.addSubview(initLabel)
         sceneView.session.add(anchor: dotAnchor)
-        sceneView.scene.rootNode.addChildNode(cameraTrack)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -170,7 +169,7 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
         
         
         sceneView.session.setWorldOrigin(relativeTransform: image.transform)
-        
+        sceneView.scene.rootNode.addChildNode(cameraTrack)
         
         OperationQueue.main.addOperation {
             self.initLabel.text = "Now Tracking \(self.clientSession.showPeers().first?.displayName ?? "Host")"

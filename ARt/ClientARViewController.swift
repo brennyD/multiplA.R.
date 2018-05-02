@@ -57,7 +57,7 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
        // sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin]
         
         let partnerSphere = SCNSphere(radius: 0.01)
-        partnerSphere.materials.first?.diffuse.contents = UIColor.white
+        partnerSphere.materials.first?.diffuse.contents = UIColor.magenta
         
         cameraTrack = SCNNode(geometry: partnerSphere)
         cameraTrack.position = SCNVector3(0,0,0)
@@ -154,6 +154,7 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
             
             if(isPressed.state == .began){
                 painter = !painter
+                self.clientSession.togglePaint(state: painter)
             }
             
             
@@ -191,6 +192,14 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
         dotAnchor = ARAnchor(transform: cameraTrack.simdWorldTransform)
         sceneView.session.add(anchor: dotAnchor)*/
         
+    }
+    
+    func paintDump(manager: ClientManager, newPos: SCNVector3) {
+        let paint = SCNSphere(radius: 0.01)
+        paint.materials.first?.diffuse.contents = UIColor.white
+        let temp = SCNNode(geometry: paint)
+        temp.position = SCNVector3(newPos.y, newPos.z, newPos.x)
+        sceneView.scene.rootNode.addChildNode(temp)
     }
     
 

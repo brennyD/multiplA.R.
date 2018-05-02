@@ -75,12 +75,16 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
      
         
         isPressed = UILongPressGestureRecognizer(target: self, action: nil)
+        isPressed.minimumPressDuration = 0.001
+        
+        sceneView.addGestureRecognizer(isPressed)
+
         painter = false
         
         
         
         let sphere = SCNSphere(radius: 0.01)
-        sphere.materials.first?.diffuse.contents = UIColor.white
+        sphere.materials.first?.diffuse.contents = UIColor.magenta
         cameraTrack = SCNNode(geometry: sphere)
         cameraTrack.position = SCNVector3(0.0,0.0,0.0)
         
@@ -160,6 +164,19 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
     }
     
     
+    
+    
+    
+    func paintDump(manager: SessionManager, newPos: SCNVector3) {
+        let paint = SCNSphere(radius: 0.01)
+        paint.materials.first?.diffuse.contents = UIColor.white
+        let temp = SCNNode(geometry: paint)
+        temp.position = SCNVector3(newPos.z, newPos.x, newPos.y)
+        sceneView.scene.rootNode.addChildNode(temp)
+    
+    }
+    
+    
     func receivePos(manager: SessionManager, newPos: SCNVector3) {
         
         cameraTrack.position = SCNVector3(newPos.z, newPos.x, newPos.y)
@@ -172,7 +189,7 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
     }
     
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
-
+        
         
         
     }
@@ -188,10 +205,10 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
             
             if(isPressed.state == .began){
                 painter = !painter
+                self.hostSession.togglePaint(state: painter)
             }
             
             if painter == true{
-                
                 let paint = SCNSphere(radius: 0.01)
                 paint.materials.first?.diffuse.contents = UIColor.white
                 let temp = SCNNode(geometry: paint)

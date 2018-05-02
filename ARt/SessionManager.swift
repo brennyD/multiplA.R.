@@ -23,6 +23,7 @@ protocol SessionViewDelegate {
     
     func setOrigin(maanager: SessionManager)
     
+    func paintDump(manager: SessionManager, newPos: SCNVector3)
     
     
 }
@@ -34,6 +35,8 @@ class SessionManager: NSObject{
     private let sessionID = "art-session"
     private let hostID: MCPeerID
     private let advertiser: MCNearbyServiceAdvertiser
+    private var otherPaint: Bool!
+    
     lazy var session : MCSession = {
         let session = MCSession(peer: self.hostID, securityIdentity: nil, encryptionPreference: .optional)
         session.delegate = self
@@ -46,6 +49,9 @@ class SessionManager: NSObject{
      init(sessionTitle: String){
         self.hostID = MCPeerID(displayName: sessionTitle)
         self.advertiser = MCNearbyServiceAdvertiser(peer: self.hostID, discoveryInfo: nil, serviceType: sessionID)
+        
+        self.otherPaint = false
+        
         super.init()
 
         self.advertiser.delegate = self
@@ -78,6 +84,27 @@ class SessionManager: NSObject{
             catch let error {
                 NSLog("%@", "Error for sending: \(error)")
             }
+        }
+    }
+    
+    func togglePaint(state: Bool){
+        print("Sending Paint toggle")
+        
+        let message: String!
+        
+        if state{
+            message = "true"
+        }
+        else{
+            message = "false"
+        }
+        
+        
+        do {
+            try self.session.send(message.data(using: .utf8)!, toPeers: session.connectedPeers, with: .reliable)
+        }
+        catch let error {
+            NSLog("%@", "Error for sending: \(error)")
         }
     }
     
@@ -145,16 +172,37 @@ extension SessionManager : MCSessionDelegate {
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         NSLog("%@", "didReceiveData: \(data)")
         
+        
         if let dict = NSKeyedUnarchiver.unarchiveObject(with: data) as! SCNVector3?{
-            self.delegate?.receivePos(manager: self, newPos: dict)
+            if otherPaint{
+                self.delegate?.paintDump(manager: self, newPos: dict)
+            }
+            
+            else{
+               self.delegate?.receivePos(manager: self, newPos: dict)
+            }
+            
         }
         else if let rMessage = String(data: data, encoding: .utf8) as String?{
             print("DATA RECEIVED \(rMessage)")
             
+            
+            
+            if rMessage == "false"{
+                 self.otherPaint = false
+                print("Paint toggled to false")
+            }
+            if rMessage == "true"{
+                self.otherPaint = true
+                print("Paint toggled to false")
+            }
+            
+            
             if rMessage == "SET"{
                 self.delegate?.setOrigin(maanager: self)
+                self.delegate?.labelUpdated(manager: self, messageString: rMessage)
             }
-            self.delegate?.labelUpdated(manager: self, messageString: rMessage)
+          
         }
             
             

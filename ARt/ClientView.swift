@@ -74,6 +74,11 @@ extension ClientView : ClientManagerDelegate {
         return
     }
     
+    func paintDump(manager: ClientManager, newPos: SCNVector3) {
+        return
+    }
+    
+    
     func transitionToSession(manager: ClientManager) {
         
         OperationQueue.main.addOperation {

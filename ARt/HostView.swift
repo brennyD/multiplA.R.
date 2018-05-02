@@ -116,6 +116,13 @@ extension HostView: SessionViewDelegate{
             return
     }
     
+    
+    func paintDump(manager: SessionManager, newPos: SCNVector3) {
+        return
+    }
+    
+    
+    
     func labelUpdated(manager: SessionManager, messageString: String) {
         
         

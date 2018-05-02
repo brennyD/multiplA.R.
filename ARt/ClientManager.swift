@@ -18,6 +18,7 @@ protocol ClientManagerDelegate {
     
     func receivePos(manager: ClientManager, newPos: SCNVector3)
     
+    func paintDump(manager: ClientManager, newPos: SCNVector3)
     
     //func colorChanged(manager : ClientManagerDelegate, colorString: String)
     
@@ -28,6 +29,7 @@ class ClientManager : NSObject {
     private let sessionID = "art-session"
     private let userID: MCPeerID
     private let serviceBrowser : MCNearbyServiceBrowser
+    private var otherPaint: Bool
     lazy var session : MCSession = {
         let session = MCSession(peer: self.userID, securityIdentity: nil, encryptionPreference: .optional)
         session.delegate = self
@@ -38,6 +40,7 @@ class ClientManager : NSObject {
     init(username: String) {
         self.userID = MCPeerID(displayName: username)
         self.serviceBrowser = MCNearbyServiceBrowser(peer: self.userID, serviceType: sessionID)
+       self.otherPaint = false
         super.init()
 
         self.serviceBrowser.delegate = self
@@ -66,6 +69,29 @@ class ClientManager : NSObject {
     
     func showPeers() -> [MCPeerID] {
         return self.session.connectedPeers
+    }
+    
+    
+    
+    func togglePaint(state: Bool){
+        print("Sending Paint toggle")
+        
+        let message: String!
+        
+        if state{
+            message = "true"
+        }
+        else{
+            message = "false"
+        }
+        
+        
+        do {
+            try self.session.send(message.data(using: .utf8)!, toPeers: session.connectedPeers, with: .reliable)
+        }
+        catch let error {
+            NSLog("%@", "Error for sending: \(error)")
+        }
     }
     
     func sendCoordinate(position: SCNVector3){
@@ -124,22 +150,36 @@ extension ClientManager : MCSessionDelegate {
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         NSLog("%@", "didReceiveData: \(data)")
-        
-        if let dict = NSKeyedUnarchiver.unarchiveObject(with: data) as! SCNVector3?{
-          self.delegate?.receivePos(manager: self, newPos: dict)
+  
+         if let dict = NSKeyedUnarchiver.unarchiveObject(with: data) as! SCNVector3?{
+            if otherPaint{
+                self.delegate?.paintDump(manager: self, newPos: dict)
+            }
+                
+            else{
+                self.delegate?.receivePos(manager: self, newPos: dict)
+            }
         }
         
        else if let inbox = String(data: data, encoding: .utf8) as String?{
+            
+            
+            if inbox == "false"{
+                self.otherPaint = false
+                print("Paint toggled to false")
+            }
+            if inbox == "true"{
+                self.otherPaint = true
+                print("Paint toggled to false")
+            }
+            
+            
+            
             if inbox == "SET TO AR SESSION" {
                 self.delegate?.transitionToSession(manager: self)
             }
         } 
-        
-        
-        
-        
-        //let str = String(data: data, encoding: .utf8)!
-        //self.delegate?.colorChanged(manager: self, colorString: str)
+
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {

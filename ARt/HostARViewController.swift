@@ -34,7 +34,7 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
     var didInit: Bool!
     
     
-    var isPressed: UITapGestureRecognizer!
+    var isPressed: UILongPressGestureRecognizer!
     
     var painter: Bool!
     
@@ -74,7 +74,7 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
         anchorImage = UIImage(named: "art.scnassets/refrenceImage.png")
      
         
-        isPressed = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        isPressed = UILongPressGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         
         
         sceneView.addGestureRecognizer(isPressed)
@@ -202,8 +202,10 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
     
     @objc func handleTap(_ sender: UITapGestureRecognizer){
         if sessionStart{
-            painter = !painter
-            self.hostSession.togglePaint(state: painter)
+            if(sender.state == .began || sender.state == .ended){
+                painter = !painter
+                self.hostSession.togglePaint(state: painter)
+            }
         }
     }
     

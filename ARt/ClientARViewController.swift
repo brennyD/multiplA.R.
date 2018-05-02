@@ -30,7 +30,7 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
     var sessionStart: Bool!
     
     
-    var isPressed: UITapGestureRecognizer!
+    var isPressed: UILongPressGestureRecognizer!
     var painter: Bool!
     
     
@@ -69,7 +69,7 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
         dotAnchor = ARAnchor(transform: cameraTrack.simdWorldTransform)
         
         
-        isPressed = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        isPressed = UILongPressGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         
         
         sceneView.addGestureRecognizer(isPressed)
@@ -148,8 +148,10 @@ class ClientARViewController: UIViewController, ARSCNViewDelegate, ARSessionObse
     
     @objc func handleTap(_ sender: UITapGestureRecognizer){
         if sessionStart{
-            painter = !painter
-            self.clientSession.togglePaint(state: painter)
+            if(sender.state == .began || sender.state == .ended){
+                painter = !painter
+                self.clientSession.togglePaint(state: painter)
+            }
         }
     }
     

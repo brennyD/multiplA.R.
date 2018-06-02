@@ -9,4 +9,4 @@ Shortly after this project was completed (1 week!), google released their cloud 
 
 Here is a demo video of the current version of multiplA.R.
 
-[!["miltiplA.R."](http://img.youtube.com/vi/Kh2ZaAuBb9U/0.jpg)](http://www.youtube.com/watch?v=Kh2ZaAuBb9U "multiplA.R. demo")
+[![multiplA.R.- seamless, easy, multiplayer Augmented Reality (AR)](https://i.ytimg.com/vi/Kh2ZaAuBb9U/hqdefault.jpg)](https://www.youtube.com/watch?v=Kh2ZaAuBb9U "multiplA.R.- seamless, easy, multiplayer Augmented Reality (AR)")

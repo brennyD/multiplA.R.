@@ -9,6 +9,6 @@ Due to current software restrictions within ARkit, this demo is only compatible 
 
 Shortly after this project was completed (1 week!), Google both announced and released their ARCore cloud anchor system as their solution to the multiplayer problem, however setup times and accuracy between their method and this one is comparable. Plus, our system has the added benefit of not needing to rely on cloud-based data from a server, only needing a minimum bluetooth connection to function!
 
-Here is a demo video of the current version of multiplA.R.
+Here is a demo video of multiplA.R.
 
 [![multiplA.R.- seamless, easy, multiplayer Augmented Reality (AR)](https://i.ytimg.com/vi/Kh2ZaAuBb9U/hqdefault.jpg)](https://www.youtube.com/watch?v=Kh2ZaAuBb9U "multiplA.R.- seamless, easy, multiplayer Augmented Reality (AR)")

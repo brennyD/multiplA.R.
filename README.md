@@ -7,7 +7,7 @@ We demonstrated this technology through a simple painting app, which uses our sy
 
 Due to current software restrictions within ARkit, this demo is only compatible with iPhone 6,7, and 8 sized devices. Compatibility will be expanded and made more dynamic soon. In addition, this technology could be expanded upon to handle as many users as desired.
 
-Shortly after this project was completed (1 week!), Google both announced and released their ARCore cloud anchor system as their solution to the multiplayer problem, however setup times and accuracy between their method and this one is comparable. Plus, our system has the added benefit of not needed to rely on cloud-based data, only needing a minimum bluetooth connection to function!
+Shortly after this project was completed (1 week!), Google both announced and released their ARCore cloud anchor system as their solution to the multiplayer problem, however setup times and accuracy between their method and this one is comparable. Plus, our system has the added benefit of not needing to rely on cloud-based data from a server, only needing a minimum bluetooth connection to function!
 
 Here is a demo video of the current version of multiplA.R.
 

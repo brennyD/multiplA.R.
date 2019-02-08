@@ -21,7 +21,7 @@ protocol SessionViewDelegate {
     
     func labelUpdated(manager: SessionManager, messageString: String)
     
-    func setOrigin(maanager: SessionManager)
+    func setOrigin(manager: SessionManager)
     
     func paintDump(manager: SessionManager, newPos: SCNVector3)
     
@@ -199,7 +199,7 @@ extension SessionManager : MCSessionDelegate {
             
             
             if rMessage == "SET"{
-                self.delegate?.setOrigin(maanager: self)
+                self.delegate?.setOrigin(manager: self)
                 self.delegate?.labelUpdated(manager: self, messageString: rMessage)
             }
           

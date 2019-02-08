@@ -1,4 +1,6 @@
 # multiplA.R.
+Developed by Brendan DeMilt and Samuel Lam
+
 Shared augmented reality application with live user tracking and synchronization in real space, making multiplayer AR feasible
 
 This is a side project in Apple's ARKit involving the synchronization of several devices in the same augmented reality state. 

@@ -151,7 +151,7 @@ class HostARViewController: UIViewController, ARSCNViewDelegate, ARSessionObserv
         return
     }
     
-    func setOrigin(maanager: SessionManager) {
+    func setOrigin(manager: SessionManager) {
         
         sceneView.session.setWorldOrigin(relativeTransform: (sceneView.session.currentFrame?.camera.transform)!)
         OperationQueue.main.addOperation {
